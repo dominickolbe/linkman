@@ -5,6 +5,7 @@
 /* images */
 /* usage:  @include is-#### */
 /* usage: @include clearfix */
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -54,18 +55,35 @@ table {
   position: fixed;
   width: 150px; }
 
+linkcontainer {
+  background: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  position: relative; }
+  linkcontainer .linkcontainer-header {
+    background: white;
+    border-top: 2px red solid;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 60px;
+    line-height: 60px;
+    padding-left: 20px; }
+  linkcontainer .linkcontainer-list {
+    height: 100%; }
+
 .link {
   height: 40px;
   width: 100%;
-  background: white;
-  border-bottom: 1px solid #bdc3c7;
+  background: #f9f9f9;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
   white-space: nowrap; }
   .link:nth-child(2n) {
-    background: #ecf0f1; }
-  .link:last-child {
-    border: none; }
+    background: white; }
   .link .icon {
-    color: rgba(52, 73, 94, 0.5);
+    color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     height: 40px;
     float: left;
@@ -74,16 +92,22 @@ table {
     width: 40px; }
   .link .title {
     color: #2c3e50;
+    cursor: default;
     float: left;
-    font-size: 14px;
+    font-size: 1em;
     font-weight: 500;
+    letter-spacing: 0.05em;
     line-height: 40px;
     padding-left: 30px;
     width: 300px; }
   .link .linktext {
     float: left;
     font-size: 12px;
-    line-height: 40px; }
+    line-height: 40px;
+    -webkit-user-select: text;
+       -moz-user-select: text;
+        -ms-user-select: text;
+            user-select: text; }
   .link:hover .link-controls {
     -webkit-transition: all 200ms ease;
             transition: all 200ms ease;
@@ -94,11 +118,29 @@ table {
             transition: all 200ms ease;
     opacity: 0; }
     .link .link-controls .icon:hover {
-      color: rgba(52, 73, 94, 0.8); }
+      color: rgba(0, 0, 0, 0.7); }
     .link .link-controls .icon:active {
       color: #34495e; }
 
+.animate-repeat.ng-enter-stagger {
+  -webkit-transition-delay: 0.01s;
+          transition-delay: 0.01s;
+  -webkit-animation-delay: 0.01s;
+          animation-delay: 0.01s; }
+
+.animate-repeat.ng-leave.ng-leave-active, .animate-repeat.ng-move, .animate-repeat.ng-enter {
+  opacity: 0; }
+
+.animate-repeat.ng-leave, .animate-repeat.ng-move.ng-move-active, .animate-repeat.ng-enter.ng-enter-active {
+  opacity: 1; }
+
 html, body {
-  font-family: "Helvetica", "Arial", "sans-serif";
+  font-family: "Lato", "Helvetica", "Arial", "sans-serif";
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  background: #f0f0f0; }
+
+.wrapper {
+  height: auto;
+  margin: 100px auto 0;
+  width: 800px; }

@@ -13,28 +13,6 @@
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0
 		},
-	"\/dev\/javascripts\/libs\/firebase.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dev\/javascripts\/libs\/firebase.js",
-		"outputAbbreviatedPath": "\/public\/js\/libs\/firebase.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 1,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 0
-		},
-	"\/dev\/javascripts\/linkman.app.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dev\/javascripts\/linkman.app.js",
-		"outputAbbreviatedPath": "\/public\/js\/linkman.app.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 1,
-		"outputStyle": 0,
-		"syntaxCheckerStyle": 1
-		},
 	"\/dev\/sass\/base\/_reset.sass": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -99,15 +77,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": false
 		},
-	"\/dev\/sass\/components\/_link.sass": {
+	"\/dev\/sass\/components\/_linkcontainer.sass": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
 		"decimalPrecision": 10,
 		"fileType": 2,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dev\/sass\/components\/_link.sass",
-		"outputAbbreviatedPath": "\/dev\/sass\/css\/_link.css",
+		"inputAbbreviatedPath": "\/dev\/sass\/components\/_linkcontainer.sass",
+		"outputAbbreviatedPath": "\/dev\/sass\/css\/_linkcontainer.css",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
@@ -258,6 +236,39 @@
 		"shouldRunAutoprefixer": 0,
 		"shouldRunBless": 0,
 		"useLibsass": false
+		},
+	"\/dev\/scripts\/libs\/firebase.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dev\/scripts\/libs\/firebase.js",
+		"outputAbbreviatedPath": "\/dev\/scripts\/libs\/min\/firebase-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/dev\/scripts\/linkman.app.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dev\/scripts\/linkman.app.js",
+		"outputAbbreviatedPath": "\/public\/js\/linkman.app.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 1,
+		"outputStyle": 0,
+		"syntaxCheckerStyle": 0
+		},
+	"\/dev\/scripts\/min\/linkman.app-min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dev\/scripts\/min\/linkman.app-min.js",
+		"outputAbbreviatedPath": "\/dev\/scripts\/min\/min\/linkman.app-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/dev\/templates\/html-footer.jade": {
 		"compileDebug": 1,

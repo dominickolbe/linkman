@@ -1,38 +1,44 @@
-<!DOCTYPE html>
+
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Document</title>
-    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
   </head>
   <body ng-app="linkmanApp" ng-controller="mainController">
     <div class="wrapper">
       <linkcontainer>
-        <div ng-repeat="link in links" class="link">
-          <div class="icon fa fa-bookmark-o"></div>
-          <div class="title">{{ link.title }}</div>
-          <div class="linktext">{{ link.src }}</div>
-          <div class="link-controls">
-            <div class="icon fa fa-files-o"></div>
-            <div class="icon fa fa-pencil"></div>
-            <div class="icon fa fa-trash-o"></div>
+        <div class="linkcontainer-header"> <span>LINKS</span></div>
+        <div class="linkcontainer-list">
+          <div ng-repeat="link in links" class="link animate-repeat">
+            <div class="icon fa fa-bookmark-o"></div>
+            <div class="title">{{ link.title }}</div>
+            <div class="linktext">{{ link.src }}</div>
+            <div class="link-controls">
+              <div class="icon fa fa-files-o"></div>
+              <div class="icon fa fa-pencil"></div>
+              <div class="icon fa fa-trash-o"></div>
+            </div>
           </div>
         </div>
       </linkcontainer>
     </div>
-    <div ng-controller="AddLinkCtrl" class="add">
-      <input type="text" ng-model="title">
-      <input type="button" value="hinzufügen" ng-click="add()">
-      <p>{{ title }}</p>
-    </div><i ng-click="reset()" class="resetdata">reset data</i>
+    <!--.add(ng-controller="AddLinkCtrl")
+    input(type="text" ng-model="title")
+    input(type="button" value="hinzufügen" ng-click="add()")
+    p {{ title }}
+    
+    
+    --><i ng-click="reset()" class="resetdata">reset data</i>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
     <script type="text/javascript" src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
     <script type="text/javascript" src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-animate.min.js"></script>
     <!--script(type="text/javascript", src="js/libs/firebase.js")-->
     <script type="text/javascript" src="js/linkman.app.js"></script>
   </body>
