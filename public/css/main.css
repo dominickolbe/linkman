@@ -1,0 +1,104 @@
+/* page breakpoints */
+/* page-dims */
+/* fonts */
+/* colors */
+/* images */
+/* usage:  @include is-#### */
+/* usage: @include clearfix */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, linkcontainer {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+*, :after, :before {
+  box-sizing: border-box; }
+
+.resetdata {
+  background: #e74c3c;
+  border-radius: 3px;
+  bottom: 10px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  height: 45px;
+  right: 5px;
+  line-height: 45px;
+  text-align: center;
+  position: fixed;
+  width: 150px; }
+
+.link {
+  height: 40px;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #bdc3c7;
+  white-space: nowrap; }
+  .link:nth-child(2n) {
+    background: #ecf0f1; }
+  .link:last-child {
+    border: none; }
+  .link .icon {
+    color: rgba(52, 73, 94, 0.5);
+    cursor: pointer;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    width: 40px; }
+  .link .title {
+    color: #2c3e50;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 40px;
+    padding-left: 30px;
+    width: 300px; }
+  .link .linktext {
+    float: left;
+    font-size: 12px;
+    line-height: 40px; }
+  .link:hover .link-controls {
+    -webkit-transition: all 200ms ease;
+            transition: all 200ms ease;
+    opacity: 1; }
+  .link .link-controls {
+    float: right;
+    -webkit-transition: all 200ms ease;
+            transition: all 200ms ease;
+    opacity: 0; }
+    .link .link-controls .icon:hover {
+      color: rgba(52, 73, 94, 0.8); }
+    .link .link-controls .icon:active {
+      color: #34495e; }
+
+html, body {
+  font-family: "Helvetica", "Arial", "sans-serif";
+  height: 100%;
+  width: 100%; }

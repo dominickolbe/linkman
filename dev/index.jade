@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+	head
+		include ./templates/html-header.jade
+
+	body(ng-app="linkmanApp" ng-controller="mainController")
+
+		.wrapper
+			linkcontainer
+				.link(ng-repeat="link in links")
+					.icon.fa.fa-bookmark-o
+					.title {{ link.title }}
+					.linktext {{ link.src }}
+					.link-controls
+						.icon.fa.fa-files-o
+						.icon.fa.fa-pencil
+						.icon.fa.fa-trash-o
+
+
+
+
+		.add(ng-controller="AddLinkCtrl")
+			input(type="text" ng-model="title")
+			input(type="button" value="hinzufügen" ng-click="add()")
+			p {{ title }}
+
+
+		i.resetdata(ng-click="reset()") reset data
+
+		include ./templates/html-footer.jade
+	

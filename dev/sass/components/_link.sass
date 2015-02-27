@@ -1,0 +1,47 @@
+.link
+	@include size(100%, $link-height)
+	background: $link-background
+	border-bottom: 1px solid #bdc3c7
+	white-space: nowrap
+	&:nth-child(2n)
+		background: $link-background2
+	&:last-child
+		border: none
+
+	.icon
+		color: rgba(52, 73, 94,.5)
+		cursor: pointer
+		height: $link-height
+		float: left
+		line-height: $link-height
+		text-align: center
+		width: $link-height
+
+	.title
+		color: $linktext-color
+		float: left
+		font-size: 14px
+		font-weight: 500
+		line-height: $link-height
+		padding-left: 30px
+		width: 300px
+
+	.linktext
+		float: left
+		font-size: 12px
+		line-height: $link-height
+
+	&:hover .link-controls
+		transition: all 200ms ease
+		opacity: 1
+
+	.link-controls
+		float: right
+		transition: all 200ms ease
+		opacity: 0
+
+		.icon:hover
+			color: rgba(52, 73, 94,.8)
+			
+		.icon:active
+			color: rgba(52, 73, 94,1)

@@ -1,0 +1,28 @@
+/* usage:  @include is-#### */
+@mixin is-mobile
+	@media only screen and (max-width: $breakpoint-mobile)
+		@content
+
+@mixin is-tablet
+	@media only screen and (max-width: $breakpoint-tablet)
+		@content
+
+@mixin is-small-screen
+	@media only screen and (max-width: $breakpoint-small-screens)
+		@content
+		
+@mixin is-large-screen
+	@media only screen and (max-width: $breakpoint-large-screens)
+		@content
+
+
+/* usage: @include clearfix */
+@mixin clearfix
+	&:after
+		content: ""
+		display: table
+		clear: both
+
+@mixin size($width, $height)
+	height: $height
+	width: $width
