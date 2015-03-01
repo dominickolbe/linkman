@@ -2,17 +2,20 @@ linkcontainer
 	background: white
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1)
 	position: relative
+	
 
 	.linkcontainer-header
 		background: white
 		border-top: 2px red solid
 		border-bottom: 1px solid rgba(0,0,0,0.1)
 		height: 60px
+		letter-spacing: .05em
 		line-height: 60px
 		padding-left: 20px
 
 	.linkcontainer-list
 		height: 100%
+
 
 
 .link
@@ -34,6 +37,7 @@ linkcontainer
 		float: left
 		line-height: $link-height
 		text-align: center
+		transition: color 200ms ease-in-out
 		width: $link-height
 
 	.title
@@ -45,13 +49,25 @@ linkcontainer
 		letter-spacing: 0.05em
 		line-height: $link-height
 		padding-left: 30px
+		text-overflow: ellipsis
+		overflow: hidden
 		width: 300px
+
+		@media only screen and (max-width: $page-width)
+			width: 50%
 
 	.linktext
 		float: left
 		font-size: 12px
 		line-height: $link-height
+		padding-left: 30px
+		text-overflow: ellipsis
+		overflow: hidden
 		user-select: text
+		width: 730px
+
+		@media only screen and (max-width: $page-width)
+			display: none
 
 	&:hover .link-controls
 		transition: all 200ms ease
@@ -62,6 +78,9 @@ linkcontainer
 		transition: all 200ms ease
 		opacity: 0
 
+		@media only screen and (max-width: $page-width)
+			display: none
+
 		.icon:hover
 			color: rgba(0, 0, 0,.7)
 			
@@ -70,8 +89,8 @@ linkcontainer
 
 
 .animate-repeat.ng-enter-stagger
-	transition-delay: .01s
-	animation-delay: .01s
+	transition-delay: .02s
+	animation-delay: .02s
 
 
 

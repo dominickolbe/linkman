@@ -5,19 +5,33 @@ html(lang="en")
 
 	body(ng-app="linkmanApp" ng-controller="mainController")
 
-		.wrapper
-			linkcontainer
-				.linkcontainer-header 
-					span LINKS
-				.linkcontainer-list
-					.link.animate-repeat(ng-repeat="link in links")
-						.icon.fa.fa-bookmark-o
-						.title {{ link.title }}
-						.linktext {{ link.src }}
-						.link-controls
-							.icon.fa.fa-files-o
-							.icon.fa.fa-pencil
-							.icon.fa.fa-trash-o
+		header
+			.page-wrapper
+				h1
+					.icon.fa.fa-connectdevelop 
+					span  LINKMAN
+				//.search-icon
+					.icon.fa.fa-search
+
+		main
+
+			.page-wrapper
+				linkcontainer.animated.fadeInUp
+					.linkcontainer-header 
+						span LINKS
+					.linkcontainer-list
+						.link.animate-repeat(ng-repeat="link in links")
+							.icon.fa.fa-bookmark-o
+							.title(title="test") {{ link.title }}
+							.linktext {{ link.src }}
+							.link-controls
+								.icon.fa.fa-files-o
+								.icon.fa.fa-pencil
+								.icon.fa.fa-trash-o
+
+		//footer
+			.page-wrapper
+				.icon.fa.fa-code  dominic kolbe
 
 
 
@@ -28,7 +42,7 @@ html(lang="en")
 			p {{ title }}
 
 
-		i.resetdata(ng-click="reset()") reset data
+			i.resetdata(ng-click="reset()") reset data
 
 		include ./templates/html-footer.jade
 	

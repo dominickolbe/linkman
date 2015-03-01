@@ -14,12 +14,13 @@ angular.module('linkmanApp', ['ngAnimate', 'firebase'])
 
             fb.$remove();
 
-            for (var i = 0; i <= 100; i++) {
+            for (var i = 0; i <= 250; i++) {
 
                 fb.$push({
 
                     title: 'Apple',
-                    src: 'http://apple.de'
+                    src: 'http://apple.de',
+                    submitTime : ''
 
                 });
             };
