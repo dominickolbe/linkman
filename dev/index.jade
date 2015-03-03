@@ -14,12 +14,11 @@ html(lang="en")
 					.icon.fa.fa-search
 
 		main
-
 			.page-wrapper
 				linkcontainer.animated.fadeInUp
 					.linkcontainer-header 
 						span LINKS
-					.linkcontainer-list
+					//.linkcontainer-list
 						.link.animate-repeat(ng-repeat="link in links")
 							.icon.fa.fa-bookmark-o
 							.title(title="test") {{ link.title }}
@@ -28,6 +27,24 @@ html(lang="en")
 								.icon.fa.fa-files-o
 								.icon.fa.fa-pencil
 								.icon.fa.fa-trash-o
+
+
+		#mask
+
+		addlink
+			.addlink-header
+				span ADD A NEW LINK
+			//p http://tympanus.net/Development/DialogEffects/cathy.html
+			.addlink-form
+				.group
+					label Title
+					input(type="text")
+				.group
+					label URL
+					input(type="text")
+				.group
+					label KEYWORDS
+					input(type="text")
 
 		//footer
 			.page-wrapper

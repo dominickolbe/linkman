@@ -25,21 +25,40 @@
       <div class="page-wrapper">
         <linkcontainer class="animated fadeInUp">
           <div class="linkcontainer-header"> <span>LINKS</span></div>
-          <div class="linkcontainer-list">
-            <div ng-repeat="link in links" class="link animate-repeat">
-              <div class="icon fa fa-bookmark-o"></div>
-              <div title="test" class="title">{{ link.title }}</div>
-              <div class="linktext">{{ link.src }}</div>
-              <div class="link-controls">
-                <div class="icon fa fa-files-o"></div>
-                <div class="icon fa fa-pencil"></div>
-                <div class="icon fa fa-trash-o"></div>
-              </div>
-            </div>
-          </div>
+          <!--.linkcontainer-list
+          .link.animate-repeat(ng-repeat="link in links")
+          	.icon.fa.fa-bookmark-o
+          	.title(title="test") {{ link.title }}
+          	.linktext {{ link.src }}
+          	.link-controls
+          		.icon.fa.fa-files-o
+          		.icon.fa.fa-pencil
+          		.icon.fa.fa-trash-o
+          
+          
+          -->
         </linkcontainer>
       </div>
     </main>
+    <div id="mask"></div>
+    <addlink>
+      <div class="addlink-header"><span>ADD A NEW LINK</span></div>
+      <!--p http://tympanus.net/Development/DialogEffects/cathy.html-->
+      <div class="addlink-form">
+        <div class="group">
+          <label>Title</label>
+          <input type="text"/>
+        </div>
+        <div class="group">
+          <label>URL</label>
+          <input type="text"/>
+        </div>
+        <div class="group">
+          <label>KEYWORDS</label>
+          <input type="text"/>
+        </div>
+      </div>
+    </addlink>
     <!--footer
     .page-wrapper
     	.icon.fa.fa-code  dominic kolbe
