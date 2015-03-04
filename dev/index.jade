@@ -14,24 +14,54 @@ html(lang="en")
 					.icon.fa.fa-search
 
 		main
-			.page-wrapper
-				linkcontainer.animated.fadeInUp
-					.linkcontainer-header 
-						span LINKS
-					//.linkcontainer-list
-						.link.animate-repeat(ng-repeat="link in links")
-							.icon.fa.fa-bookmark-o
-							.title(title="test") {{ link.title }}
-							.linktext {{ link.src }}
-							.link-controls
-								.icon.fa.fa-files-o
-								.icon.fa.fa-pencil
-								.icon.fa.fa-trash-o
+
+			section#linkcontainer
+				.page-wrapper
+					linkcontainer.animated.fadeInUp
+						.linkcontainer-header 
+							span LINKS
+						//.linkcontainer-list
+							.link.animate-repeat(ng-repeat="link in links")
+								.icon.fa.fa-bookmark-o
+								.title(title="test") {{ link.title }}
+								.linktext {{ link.src }}
+								.link-controls
+									.icon.fa.fa-files-o
+									.icon.fa.fa-pencil
+									.icon.fa.fa-trash-o
 
 
-		#mask
 
-		addlink
+			section#addlink
+
+				.addlink-container
+					.addlink-header
+						span ADD A NEW LINK
+					//p http://tympanus.net/Development/DialogEffects/cathy.html
+
+					.addlink-main
+						.form-group
+							input(type="text" id="input-title")
+							label(for="input-title") Title
+							
+						.form-group
+							input(type="text" id="input-url")
+							label(for="input-url") URL
+							
+						.form-group
+							input(type="text" id="input-key")
+							label(for="input-key") KEYWORDS
+							
+
+					.addlink-footer
+
+
+			//
+				
+
+
+
+		//addlink
 			.addlink-header
 				span ADD A NEW LINK
 			//p http://tympanus.net/Development/DialogEffects/cathy.html

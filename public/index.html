@@ -22,43 +22,70 @@
       </div>
     </header>
     <main>
-      <div class="page-wrapper">
-        <linkcontainer class="animated fadeInUp">
-          <div class="linkcontainer-header"> <span>LINKS</span></div>
-          <!--.linkcontainer-list
-          .link.animate-repeat(ng-repeat="link in links")
-          	.icon.fa.fa-bookmark-o
-          	.title(title="test") {{ link.title }}
-          	.linktext {{ link.src }}
-          	.link-controls
-          		.icon.fa.fa-files-o
-          		.icon.fa.fa-pencil
-          		.icon.fa.fa-trash-o
-          
-          
-          -->
-        </linkcontainer>
-      </div>
+      <section id="linkcontainer">
+        <div class="page-wrapper">
+          <linkcontainer class="animated fadeInUp">
+            <div class="linkcontainer-header"> <span>LINKS</span></div>
+            <!--.linkcontainer-list
+            .link.animate-repeat(ng-repeat="link in links")
+            	.icon.fa.fa-bookmark-o
+            	.title(title="test") {{ link.title }}
+            	.linktext {{ link.src }}
+            	.link-controls
+            		.icon.fa.fa-files-o
+            		.icon.fa.fa-pencil
+            		.icon.fa.fa-trash-o
+            
+            
+            
+            -->
+          </linkcontainer>
+        </div>
+      </section>
+      <section id="addlink">
+        <div class="addlink-container">
+          <div class="addlink-header"><span>ADD A NEW LINK</span></div>
+          <!--p http://tympanus.net/Development/DialogEffects/cathy.html-->
+          <div class="addlink-main">
+            <div class="form-group">
+              <input type="text" id="input-title"/>
+              <label for="input-title">Title</label>
+            </div>
+            <div class="form-group">
+              <input type="text" id="input-url"/>
+              <label for="input-url">URL</label>
+            </div>
+            <div class="form-group">
+              <input type="text" id="input-key"/>
+              <label for="input-key">KEYWORDS</label>
+            </div>
+          </div>
+          <div class="addlink-footer"></div>
+        </div>
+      </section>
+      <!--
+      
+      
+      
+      
+      -->
     </main>
-    <div id="mask"></div>
-    <addlink>
-      <div class="addlink-header"><span>ADD A NEW LINK</span></div>
-      <!--p http://tympanus.net/Development/DialogEffects/cathy.html-->
-      <div class="addlink-form">
-        <div class="group">
-          <label>Title</label>
-          <input type="text"/>
-        </div>
-        <div class="group">
-          <label>URL</label>
-          <input type="text"/>
-        </div>
-        <div class="group">
-          <label>KEYWORDS</label>
-          <input type="text"/>
-        </div>
-      </div>
-    </addlink>
+    <!--addlink
+    .addlink-header
+    	span ADD A NEW LINK
+    //p http://tympanus.net/Development/DialogEffects/cathy.html
+    .addlink-form
+    	.group
+    		label Title
+    		input(type="text")
+    	.group
+    		label URL
+    		input(type="text")
+    	.group
+    		label KEYWORDS
+    		input(type="text")
+    
+    -->
     <!--footer
     .page-wrapper
     	.icon.fa.fa-code  dominic kolbe
