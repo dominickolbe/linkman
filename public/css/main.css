@@ -1,10 +1,80 @@
+/* IMPORT ALL SASS FILES */
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+.animated {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounceInDown{
+  0%, 60%, 75%, 90%, 100%{
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0%{
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+            transform: translate3d(0, -3000px, 0);
+  }
+  60%{
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+            transform: translate3d(0, 25px, 0);
+  }
+  75%{
+    -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+  }
+  90%{
+    -webkit-transform: translate3d(0, 5px, 0);
+            transform: translate3d(0, 5px, 0);
+  }
+  100%{
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+            transform: translate3d(0, -3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+            transform: translate3d(0, 25px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+            transform: translate3d(0, -10px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+            transform: translate3d(0, 5px, 0);
+  }
+  100% {
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+          animation-name: bounceInDown;
+}
+
+/* usage:  @include is-#### */
+/* usage: @include clearfix */
 /* page-dims */
 /* fonts */
 /* images */
 /* coolors */
-/* usage:  @include is-#### */
-/* usage: @include clearfix */
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -49,6 +119,157 @@ table {
   box-sizing: border-box;
 }
 
+#addlink {
+  background: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all 0.3s;
+          transition: all 0.3s;
+  width: 100%;
+}
+
+.addlink-form {
+  background: white;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  width: 750px;
+}
+.addlink-form > .header {
+  background: white;
+  border-top: 2px #e67e22 solid;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  height: 60px;
+  letter-spacing: 0.05em;
+  line-height: 60px;
+  padding-left: 20px;
+}
+.addlink-form > .main {
+  padding: 35px 25px;
+  width: 100%;
+}
+.addlink-form > .footer {
+  background: #ecf0f1;
+  height: 60px;
+  width: 100%;
+}
+
+.form-group {
+  height: 70px;
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+.form-group label {
+  color: #333;
+  display: block;
+  font-size: 18px;
+  font-weight: 300;
+  height: 25px;
+  letter-spacing: 0.6px;
+  line-height: 25px;
+  top: 40px;
+  position: absolute;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+.form-group:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 10px);
+  border-bottom: 1px solid #B9C1CA;
+}
+.form-group input {
+  border: none;
+  border-bottom: 1px solid grey;
+  bottom: 0;
+  font-family: "Lato", "Helvetica", "Arial", "sans-serif";
+  font-size: 20px;
+  font-weight: 300;
+  height: 45px;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+.form-group input:focus + label {
+  font-size: 16px;
+  top: 0;
+}
+
+.show {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: linkcontainerbounceInDown;
+          animation-name: linkcontainerbounceInDown;
+}
+
+@-webkit-keyframes linkcontainerbounceInDown{
+  0%, 60%, 75%, 90%, 100%{
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0%{
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, -3000px, 0);
+            transform: translate3d(-50%, -3000px, 0);
+  }
+  60%{
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, calc(-50% + 25px), 0);
+            transform: translate3d(-50%, calc(-50% + 25px), 0);
+  }
+  75%{
+    -webkit-transform: translate3d(-50%, calc(-50% -10px), 0);
+            transform: translate3d(-50%, calc(-50% -10px), 0);
+  }
+  90%{
+    -webkit-transform: translate3d(-50%, calc(-50% + 5px), 0);
+            transform: translate3d(-50%, calc(-50% + 5px), 0);
+  }
+  100%{
+    -webkit-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+@keyframes linkcontainerbounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, -3000px, 0);
+            transform: translate3d(-50%, -3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, calc(-50% + 25px), 0);
+            transform: translate3d(-50%, calc(-50% + 25px), 0);
+  }
+  75% {
+    -webkit-transform: translate3d(-50%, calc(-50% -10px), 0);
+            transform: translate3d(-50%, calc(-50% -10px), 0);
+  }
+  90% {
+    -webkit-transform: translate3d(-50%, calc(-50% + 5px), 0);
+            transform: translate3d(-50%, calc(-50% + 5px), 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+  }
+}
 .resetdata {
   background: #e74c3c;
   border-radius: 3px;
@@ -69,7 +290,7 @@ linkcontainer {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   position: relative;
 }
-linkcontainer .linkcontainer-header {
+linkcontainer > .header {
   background: white;
   border-top: 2px #e67e22 solid;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -78,7 +299,7 @@ linkcontainer .linkcontainer-header {
   line-height: 60px;
   padding-left: 20px;
 }
-linkcontainer .linkcontainer-list {
+linkcontainer > .list {
   height: 100%;
 }
 
@@ -182,6 +403,16 @@ linkcontainer .linkcontainer-list {
   opacity: 1;
 }
 
+footer {
+  background: white;
+  bottom: 0;
+  box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1);
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+}
+
 header {
   background: url("http://avathemes.com/WP/Pulsar/wp-content/uploads/2013/02/bg2.jpg") center center no-repeat;
   background-size: cover;
@@ -211,102 +442,6 @@ header .search-icon {
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-}
-
-#addlink {
-  background: rgba(0, 0, 0, 0.3);
-  height: 100%;
-  position: fixed;
-  top: 0;
-  -webkit-transition: all 0.3s;
-          transition: all 0.3s;
-  width: 100%;
-}
-
-.addlink-container {
-  background: white;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
-  left: 50%;
-  position: fixed;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 750px;
-}
-.addlink-container .addlink-header {
-  background: white;
-  border-top: 2px #e67e22 solid;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  height: 60px;
-  letter-spacing: 0.05em;
-  line-height: 60px;
-  padding-left: 20px;
-}
-.addlink-container .addlink-main {
-  padding: 35px 25px;
-  width: 100%;
-}
-.addlink-container .addlink-footer {
-  background: #ecf0f1;
-  height: 60px;
-  width: 100%;
-}
-
-.form-group {
-  height: 70px;
-  margin-bottom: 20px;
-  position: relative;
-  width: 100%;
-}
-.form-group label {
-  color: #333;
-  display: block;
-  font-size: 18px;
-  font-weight: 300;
-  height: 25px;
-  letter-spacing: 0.6px;
-  line-height: 25px;
-  top: 40px;
-  position: absolute;
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
-}
-.form-group:before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 10px);
-  border-bottom: 1px solid #B9C1CA;
-}
-.form-group input {
-  border: none;
-  border-bottom: 1px solid grey;
-  bottom: 0;
-  font-family: "Lato", "Helvetica", "Arial", "sans-serif";
-  font-size: 20px;
-  font-weight: 300;
-  height: 45px;
-  outline: none;
-  padding: 0;
-  position: absolute;
-  width: 100%;
-}
-.form-group input:focus + label {
-  font-size: 16px;
-  top: 0;
-}
-
-footer {
-  background: white;
-  bottom: 0;
-  box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1);
-  height: 50px;
-  position: fixed;
-  width: 100%;
-  z-index: 9;
 }
 
 html, body {

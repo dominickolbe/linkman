@@ -6,16 +6,16 @@
 	transition: all .3s
 	width: 100%
 
-.addlink-container
+.addlink-form
 	background: white
 	box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1)
 	left: 50%
 	position: fixed
 	top: 50%
-	transform: translate(-50%, -50%)
+	transform: translate3d(-50%, -50%, 0)
 	width: 750px
 
-	.addlink-header
+	>.header
 		background: white
 		border-top: 2px $color-carrot solid
 		border-bottom: 1px solid rgba(0,0,0,0.1)
@@ -24,12 +24,12 @@
 		line-height: 60px
 		padding-left: 20px
 
-	.addlink-main
+	>.main
 		//background: grey
 		padding: 35px 25px
 		width: 100%
 
-	.addlink-footer
+	>.footer
 		background: $color-clouds
 		height: 60px
 		width: 100%
@@ -78,6 +78,28 @@
 			font-size: 16px
 			top: 0
 
-		
+.show
+	animation-duration: 1s
+	animation-fill-mode: both
+	animation-name: linkcontainerbounceInDown
+
+
+@keyframes linkcontainerbounceInDown 
+	0%, 60%, 75%, 90%, 100% 
+		transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000)
+	0% 
+		opacity: 0
+		transform: translate3d(-50%, -3000px, 0)
+	60% 
+		opacity: 1
+		transform: translate3d(-50%, calc(-50% + 25px), 0)
+	75% 
+		transform: translate3d(-50%, calc(-50% -10px), 0)
+	90% 
+		transform: translate3d(-50%, calc(-50% + 5px), 0)
+	100% 
+		transform: translate3d(-50%, -50%, 0)
+
+	
 
 	

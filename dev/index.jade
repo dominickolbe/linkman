@@ -17,10 +17,10 @@ html(lang="en")
 
 			section#linkcontainer
 				.page-wrapper
-					linkcontainer.animated.fadeInUp
-						.linkcontainer-header 
+					linkcontainer.animated.fadeInUpe
+						.header 
 							span LINKS
-						//.linkcontainer-list
+						//.list
 							.link.animate-repeat(ng-repeat="link in links")
 								.icon.fa.fa-bookmark-o
 								.title(title="test") {{ link.title }}
@@ -34,12 +34,12 @@ html(lang="en")
 
 			section#addlink
 
-				.addlink-container
-					.addlink-header
+				.addlink-form.show
+					.header
 						span ADD A NEW LINK
 					//p http://tympanus.net/Development/DialogEffects/cathy.html
 
-					.addlink-main
+					.main
 						.form-group
 							input(type="text" id="input-title")
 							label(for="input-title") Title
@@ -53,7 +53,7 @@ html(lang="en")
 							label(for="input-key") KEYWORDS
 							
 
-					.addlink-footer
+					.footer
 
 
 			//
