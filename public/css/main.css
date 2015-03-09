@@ -177,15 +177,6 @@ table {
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
 }
-.form-group:before {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 10px);
-  border-bottom: 1px solid #B9C1CA;
-}
 .form-group input {
   border: none;
   border-bottom: 1px solid grey;
@@ -199,7 +190,7 @@ table {
   position: absolute;
   width: 100%;
 }
-.form-group input:focus + label {
+.form-group input:valid + label, .form-group input:focus + label {
   font-size: 16px;
   top: 0;
 }
