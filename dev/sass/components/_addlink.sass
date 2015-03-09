@@ -17,12 +17,26 @@
 
 	>.header
 		background: white
-		border-top: 2px $color-carrot solid
+		border-top: 2px $color-peterriver solid
 		border-bottom: 1px solid rgba(0,0,0,0.1)
 		height: 60px
-		letter-spacing: .05em
-		line-height: 60px
-		padding-left: 20px
+
+		>h3.title
+			float: left
+			letter-spacing: .05em
+			line-height: 60px
+			padding-left: 20px
+
+		>.icon
+			border-left: 1px solid rgba(0,0,0,0.1)
+			color: rgba(0,0,0,0.9)
+			cursor: pointer
+			height: 60px
+			float: right
+			line-height: 60px
+			text-align: center
+			transition: color 200ms ease-in-out
+			width: 60px
 
 	>.main
 		//background: grey

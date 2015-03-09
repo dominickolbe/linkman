@@ -20,7 +20,7 @@ html(lang="en")
 					linkcontainer.animated.fadeInUpe
 						.header 
 							span LINKS
-						//.list
+						.list
 							.link.animate-repeat(ng-repeat="link in links")
 								.icon.fa.fa-bookmark-o
 								.title(title="test") {{ link.title }}
@@ -33,10 +33,10 @@ html(lang="en")
 
 
 			section#addlink
-
 				.addlink-form.show
 					.header
-						span ADD A NEW LINK
+						h3.title ADD A NEW LINK
+						i.icon.fa.fa-times
 					//p http://tympanus.net/Development/DialogEffects/cathy.html
 
 					.main
@@ -64,7 +64,7 @@ html(lang="en")
 		//addlink
 			.addlink-header
 				span ADD A NEW LINK
-			//p http://tympanus.net/Development/DialogEffects/cathy.html
+			p http://tympanus.net/Development/DialogEffects/cathy.html
 			.addlink-form
 				.group
 					label Title

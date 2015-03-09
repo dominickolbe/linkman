@@ -26,25 +26,26 @@
         <div class="page-wrapper">
           <linkcontainer class="animated fadeInUpe">
             <div class="header"> <span>LINKS</span></div>
-            <!--.list
-            .link.animate-repeat(ng-repeat="link in links")
-            	.icon.fa.fa-bookmark-o
-            	.title(title="test") {{ link.title }}
-            	.linktext {{ link.src }}
-            	.link-controls
-            		.icon.fa.fa-files-o
-            		.icon.fa.fa-pencil
-            		.icon.fa.fa-trash-o
-            
-            
-            
-            -->
+            <div class="list">
+              <div ng-repeat="link in links" class="link animate-repeat">
+                <div class="icon fa fa-bookmark-o"></div>
+                <div title="test" class="title">{{ link.title }}</div>
+                <div class="linktext">{{ link.src }}</div>
+                <div class="link-controls">
+                  <div class="icon fa fa-files-o"></div>
+                  <div class="icon fa fa-pencil"></div>
+                  <div class="icon fa fa-trash-o"></div>
+                </div>
+              </div>
+            </div>
           </linkcontainer>
         </div>
       </section>
       <section id="addlink">
         <div class="addlink-form show">
-          <div class="header"><span>ADD A NEW LINK</span></div>
+          <div class="header">
+            <h3 class="title">ADD A NEW LINK</h3><i class="icon fa fa-times"></i>
+          </div>
           <!--p http://tympanus.net/Development/DialogEffects/cathy.html-->
           <div class="main">
             <div class="form-group">
@@ -73,7 +74,7 @@
     <!--addlink
     .addlink-header
     	span ADD A NEW LINK
-    //p http://tympanus.net/Development/DialogEffects/cathy.html
+    p http://tympanus.net/Development/DialogEffects/cathy.html
     .addlink-form
     	.group
     		label Title
