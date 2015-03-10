@@ -1,1 +1,1 @@
-$(function(){console.log("start"),$(window).scroll(function(){})});
+$(function(){$(window).scroll(function(){})});

@@ -32,8 +32,9 @@ html(lang="en")
 
 
 
-			section#addlink
+			//.section#addlink
 				.addlink-form.show
+
 					.header
 						h3.title ADD A NEW LINK
 						i.icon.fa.fa-times
@@ -41,40 +42,23 @@ html(lang="en")
 
 					.main
 						.form-group
-							input.test(type="text" id="input-title" required)
-							label(for="input-title") Title
+							input.field(type="text" id="input-title" required)
+							label(for="input-title") TITLE
 							
 						.form-group
-							input(type="text" id="input-url" required)
+							input.field(type="text" id="input-url" required)
 							label(for="input-url") URL
 							
 						.form-group
-							input(type="text" id="input-key" required)
+							input.field(type="text" id="input-key" required)
 							label(for="input-key") KEYWORDS
-							
 
 					.footer
+						.form-group
+							.action.cancel CANCEL
+							.action.submit SUBMIT THIS LINK
 
 
-			//
-				
-
-
-
-		//addlink
-			.addlink-header
-				span ADD A NEW LINK
-			p http://tympanus.net/Development/DialogEffects/cathy.html
-			.addlink-form
-				.group
-					label Title
-					input(type="text")
-				.group
-					label URL
-					input(type="text")
-				.group
-					label KEYWORDS
-					input(type="text")
 
 		//footer
 			.page-wrapper
@@ -83,10 +67,10 @@ html(lang="en")
 
 
 
-		//.add(ng-controller="AddLinkCtrl")
+		.add(ng-controller="AddLinkCtrl")
 			input(type="text" ng-model="title")
+			input(type="text" ng-model="url")
 			input(type="button" value="hinzufügen" ng-click="add()")
-			p {{ title }}
 
 
 			i.resetdata(ng-click="reset()") reset data

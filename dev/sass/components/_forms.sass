@@ -1,0 +1,60 @@
+.form-group
+	height: 70px
+	margin-bottom: 20px
+	position: relative
+	width: 100%
+
+	>label
+		color: #333
+		display: block
+		font-size: 18px
+		font-weight: 300
+		height: 25px
+		letter-spacing: .8px
+		line-height: 25px
+		top: 40px
+		position: absolute
+		transition: all .2s ease
+
+	>.field
+		border: none
+		border-bottom: 1px solid grey
+		bottom: 0
+		font-family: $page-font
+		font-size: 20px
+		font-weight: 300
+		height: 45px
+		outline: none
+		padding: 0
+		position: absolute
+		width: 100%
+
+		&:valid + label, &:focus + label
+			font-size: 16px
+			top: 0
+
+	>.action
+		background: none
+		border: none
+		cursor: pointer
+		color: #333
+		float: left
+		height: 70px
+		letter-spacing: .8px
+		line-height: 70px
+		margin: 0
+		padding: 0
+		text-align: center
+		transition: all .2s ease
+		width: 50%
+
+		&.cancel
+			border-right: 1px solid rgba(0,0,0,0.1)
+
+		&.submit
+			//color: white
+
+			&:hover
+				background: $color-peterriver
+				color: white
+

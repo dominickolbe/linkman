@@ -127,6 +127,7 @@ table {
   -webkit-transition: all 0.3s;
           transition: all 0.3s;
   width: 100%;
+  z-index: 10;
 }
 
 .addlink-form {
@@ -143,6 +144,7 @@ table {
   background: white;
   border-top: 2px #3498db solid;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: content-box;
   height: 60px;
 }
 .addlink-form > .header > h3.title {
@@ -153,7 +155,7 @@ table {
 }
 .addlink-form > .header > .icon {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.6);
   cursor: pointer;
   height: 60px;
   float: right;
@@ -163,51 +165,22 @@ table {
           transition: color 200ms ease-in-out;
   width: 60px;
 }
+.addlink-form > .header > .icon:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+.addlink-form > .header > .icon:active {
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: none;
+          transition: none;
+}
 .addlink-form > .main {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding: 35px 25px;
   width: 100%;
 }
 .addlink-form > .footer {
-  background: #ecf0f1;
-  height: 60px;
-  width: 100%;
-}
-
-.form-group {
   height: 70px;
-  margin-bottom: 20px;
-  position: relative;
   width: 100%;
-}
-.form-group label {
-  color: #333;
-  display: block;
-  font-size: 18px;
-  font-weight: 300;
-  height: 25px;
-  letter-spacing: 0.6px;
-  line-height: 25px;
-  top: 40px;
-  position: absolute;
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
-}
-.form-group input {
-  border: none;
-  border-bottom: 1px solid grey;
-  bottom: 0;
-  font-family: "Lato", "Helvetica", "Arial", "sans-serif";
-  font-size: 20px;
-  font-weight: 300;
-  height: 45px;
-  outline: none;
-  padding: 0;
-  position: absolute;
-  width: 100%;
-}
-.form-group input:valid + label, .form-group input:focus + label {
-  font-size: 16px;
-  top: 0;
 }
 
 .show {
@@ -289,6 +262,66 @@ table {
   text-align: center;
   position: fixed;
   width: 150px;
+}
+
+.form-group {
+  height: 70px;
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+.form-group > label {
+  color: #333;
+  display: block;
+  font-size: 18px;
+  font-weight: 300;
+  height: 25px;
+  letter-spacing: 0.8px;
+  line-height: 25px;
+  top: 40px;
+  position: absolute;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+.form-group > .field {
+  border: none;
+  border-bottom: 1px solid grey;
+  bottom: 0;
+  font-family: "Lato", "Helvetica", "Arial", "sans-serif";
+  font-size: 20px;
+  font-weight: 300;
+  height: 45px;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+.form-group > .field:valid + label, .form-group > .field:focus + label {
+  font-size: 16px;
+  top: 0;
+}
+.form-group > .action {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  float: left;
+  height: 70px;
+  letter-spacing: 0.8px;
+  line-height: 70px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+  width: 50%;
+}
+.form-group > .action.cancel {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form-group > .action.submit:hover {
+  background: #3498db;
+  color: white;
 }
 
 linkcontainer {

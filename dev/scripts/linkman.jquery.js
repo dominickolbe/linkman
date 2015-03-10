@@ -1,8 +1,5 @@
 $(function() {
 
-    console.log('start');
-
-
 
     $(window).scroll(function() {
 

@@ -1,52 +1,47 @@
 angular.module('linkmanApp', ['ngAnimate', 'firebase'])
 
-.controller('mainController', function($scope, $firebase) {
+.constant('FBURL', "https://linkman.firebaseio.com/links")
+
+.factory('fbService', function($firebase, FBURL) {
+    var ref = new Firebase(FBURL);
+    return $firebase(ref);
+})
+
+.controller('mainController', function($scope, fbService) {
+
+    $scope.fb = fbService;
 
 
-        var ref = new Firebase("https://linkman.firebaseio.com/links");
-        var fb = $firebase(ref);
-        var syncObject = fb.$asObject();
+    var syncObject = fbService.$asObject();
 
-        syncObject.$bindTo($scope, 'links');
+    syncObject.$bindTo($scope, 'links');
 
 
-        $scope.reset = function() {
+    $scope.reset = function() {
 
-            fb.$remove();
-
-            for (var i = 0; i <= 250; i++) {
-
-                fb.$push({
-
-                    title: 'Apple',
-                    src: 'http://apple.de',
-                    submitTime : ''
-
-                });
-            };
+        fbService.$remove();
 
 
-        };
+    };
 
-    })
-    .controller('AddLinkCtrl', function($scope, $firebase) {
+})
 
-        var thistitle = $scope.title;
-        //var src   = $scope.src;
+.controller('AddLinkCtrl', function($scope, fbService) {
+
+    $scope.fb = fbService;
+
+    $scope.add = function() {
+
+        fbService.$push({
+
+            title: $scope.title,
+            src: $scope.url
+
+        });
+
+    };
 
 
-        $scope.add = function() {
-
-            fb.$push({
-
-                title: thistitle,
-                src: 'abc'
-
-            });
-
-        };
-
-
-    })
+});
 
 

@@ -5,6 +5,7 @@
 	top: 0
 	transition: all .3s
 	width: 100%
+	z-index: 10
 
 .addlink-form
 	background: white
@@ -19,6 +20,7 @@
 		background: white
 		border-top: 2px $color-peterriver solid
 		border-bottom: 1px solid rgba(0,0,0,0.1)
+		box-sizing: content-box
 		height: 60px
 
 		>h3.title
@@ -29,7 +31,7 @@
 
 		>.icon
 			border-left: 1px solid rgba(0,0,0,0.1)
-			color: rgba(0,0,0,0.9)
+			color: rgba(0,0,0,0.6)
 			cursor: pointer
 			height: 60px
 			float: right
@@ -37,51 +39,22 @@
 			text-align: center
 			transition: color 200ms ease-in-out
 			width: 60px
+			&:hover
+				color: rgba(0,0,0,0.7)
+			&:active
+				color: rgba(0,0,0,0.8)
+				transition: none
 
 	>.main
-		//background: grey
+		border-bottom: 1px solid rgba(0,0,0,0.1)
 		padding: 35px 25px
 		width: 100%
 
 	>.footer
-		background: $color-clouds
-		height: 60px
+		height: 70px
 		width: 100%
 
-.form-group
-	height: 70px
-	margin-bottom: 20px
-	position: relative
-	width: 100%
 
-	label
-		color: #333
-		display: block
-		font-size: 18px
-		font-weight: 300
-		height: 25px
-		letter-spacing: .6px
-		line-height: 25px
-		top: 40px
-		position: absolute
-		transition: all .2s ease
-
-	input
-		border: none
-		border-bottom: 1px solid grey
-		bottom: 0
-		font-family: $page-font
-		font-size: 20px
-		font-weight: 300
-		height: 45px
-		outline: none
-		padding: 0
-		position: absolute
-		width: 100%
-
-		&:valid + label, &:focus + label
-			font-size: 16px
-			top: 0
 
 .show
 	animation-duration: 1s
