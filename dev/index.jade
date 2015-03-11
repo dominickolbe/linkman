@@ -15,48 +15,7 @@ html(lang="en")
 
 		main
 
-			section#linkcontainer
-				.page-wrapper
-					linkcontainer.animated.fadeInUpe
-						.header 
-							span LINKS
-						.list
-							.link.animate-repeat(ng-repeat="link in links")
-								.icon.fa.fa-bookmark-o
-								.title(title="test") {{ link.title }}
-								.linktext {{ link.src }}
-								.link-controls
-									.icon.fa.fa-files-o
-									.icon.fa.fa-pencil
-									.icon.fa.fa-trash-o
-
-
-
-			//.section#addlink
-				.addlink-form.show
-
-					.header
-						h3.title ADD A NEW LINK
-						i.icon.fa.fa-times
-					//p http://tympanus.net/Development/DialogEffects/cathy.html
-
-					.main
-						.form-group
-							input.field(type="text" id="input-title" required)
-							label(for="input-title") TITLE
-							
-						.form-group
-							input.field(type="text" id="input-url" required)
-							label(for="input-url") URL
-							
-						.form-group
-							input.field(type="text" id="input-key" required)
-							label(for="input-key") KEYWORDS
-
-					.footer
-						.form-group
-							.action.cancel CANCEL
-							.action.submit SUBMIT THIS LINK
+			section(ng-view)
 
 
 
@@ -67,13 +26,15 @@ html(lang="en")
 
 
 
-		.add(ng-controller="AddLinkCtrl")
+		.add
 			input(type="text" ng-model="title")
 			input(type="text" ng-model="url")
 			input(type="button" value="hinzufügen" ng-click="add()")
 
 
 			i.resetdata(ng-click="reset()") reset data
+
+			i.adddata(ng-click="") add data
 
 		include ./templates/html-footer.jade
 	

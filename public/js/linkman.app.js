@@ -1,6 +1,31 @@
-angular.module('linkmanApp', ['ngAnimate', 'firebase'])
+angular.module('linkmanApp', ['ngAnimate', 'ngRoute', 'firebase'])
 
 .constant('FBURL', "https://linkman.firebaseio.com/links")
+
+.config(function($routeProvider, $locationProvider) {
+    $routeProvider
+        .when('/links', {
+
+            templateUrl: 'views/view-linkcontainer.html',
+            controller: 'ListController'
+
+        })
+        .when('/links/new', {
+            templateUrl: 'views/view-addlink.html',
+            controller: 'AddLinkController'
+
+        })
+        .when('/links/edit', {
+
+            controller: 'EditController'
+
+        })
+        .otherwise({
+            redirectTo: 'links'
+        });
+    $locationProvider
+        .html5Mode(true);
+})
 
 .factory('fbService', function($firebase, FBURL) {
     var ref = new Firebase(FBURL);
@@ -9,26 +34,24 @@ angular.module('linkmanApp', ['ngAnimate', 'firebase'])
 
 .controller('mainController', function($scope, fbService) {
 
-    $scope.fb = fbService;
+    $scope.reset = function() {
+        fbService.$remove();
+    };
 
+})
+
+.controller('ListController', function($scope, fbService) {
 
     var syncObject = fbService.$asObject();
 
     syncObject.$bindTo($scope, 'links');
 
 
-    $scope.reset = function() {
-
-        fbService.$remove();
-
-
-    };
-
 })
 
-.controller('AddLinkCtrl', function($scope, fbService) {
+.controller('AddLinkController', function($scope, fbService) {
 
-    $scope.fb = fbService;
+    //$scope.fb = fbService;
 
     $scope.add = function() {
 
@@ -40,6 +63,12 @@ angular.module('linkmanApp', ['ngAnimate', 'firebase'])
         });
 
     };
+
+
+})
+
+.controller('EditController', function($scope, fbService) {
+
 
 
 });

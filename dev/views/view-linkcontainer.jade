@@ -1,0 +1,14 @@
+#linkcontainer
+	.page-wrapper
+		linkcontainer.animated.fadeInUpe
+			.header 
+				span LINKS
+			.list
+				.link.animate-repeat(ng-repeat="link in links")
+					.icon.fa.fa-bookmark-o
+					.title(title="test") {{ link.title }}
+					.linktext {{ link.src }}
+					.link-controls
+						.icon.fa.fa-files-o
+						.icon.fa.fa-pencil
+						.icon.fa.fa-trash-o
