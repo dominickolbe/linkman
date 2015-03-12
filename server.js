@@ -1,14 +1,12 @@
-var express = require('express');
-var app = express();
+var express = require('express'),
+    app     = express();
+var port = process.env.PORT || 3000;
 
-var port = process.env.PORT || 8080;
 
+app
+    .use(express.static('./public'))
+    .get('*', function(req, res) {
+        res.sendfile('public/index.html');
+    })
+    .listen(port);
 
-app.use(express.static('./public'));
-
-app.get('*', function(req, res) {
-
-    res.sendfile('public/index.html');
-});
-
-app.listen();

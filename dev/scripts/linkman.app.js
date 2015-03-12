@@ -19,15 +19,14 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
         controller: 'ListController'
     })
 
-    .state('links.new', {
-        url: '/new',
+    .state('links.add', {
+        url: '/add',
         templateUrl: 'views/view-addlink.html',
-        controller: 'ListController'
+        controller: 'AddLinkController'
     })
 
-
-    .state('new', {
-        url: '/links/new',
+    .state('links.edit', {
+        url: '/edit',
         templateUrl: 'views/view-addlink.html'
     });
 
@@ -47,22 +46,17 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
 .controller('ListController', function($scope, fbService) {
 
-    console.log('ListController');
-
     var syncObject = fbService.$asObject();
 
     syncObject.$bindTo($scope, 'links');
 
-    console.log($scope);
-
-
 })
 
-.controller('AddLinkController', function($scope, fbService) {
+.controller('AddLinkController', function($scope, fbService, $state) {
 
     //$scope.fb = fbService;
 
-    $scope.add = function() {
+    $scope.submit = function() {
 
         fbService.$push({
 
@@ -71,7 +65,13 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
         });
 
+        $state.go('links');
+
     };
+
+    $scope.cancel = function(){
+        $state.go('links');
+    }
 
 
 })

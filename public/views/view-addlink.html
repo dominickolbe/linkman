@@ -2,27 +2,24 @@
 <div id="addlink">
   <div class="addlink-form page-wrapper">
     <div class="header">
-      <h3 class="title">ADD A NEW LINK</h3><i class="icon fa fa-times"></i>
+      <h3 class="title">ADD A NEW LINK</h3><i ng-click="cancel()" class="icon fa fa-times"></i>
     </div>
     <!--p http://tympanus.net/Development/DialogEffects/cathy.html-->
     <div class="main">
       <div class="form-group">
-        <input type="text" id="input-title" required="required" class="field"/>
-        <label for="input-title">TITLE</label>
+        <input type="text" id="input-title" placeholder="TITLE" required="required" ng-model="title" class="field"/>
       </div>
       <div class="form-group">
-        <input type="text" id="input-url" required="required" class="field"/>
-        <label for="input-url">URL</label>
+        <input type="text" id="input-url" placeholder="URL" required="required" ng-model="url" class="field"/>
       </div>
       <div class="form-group">
-        <input type="text" id="input-key" required="required" class="field"/>
-        <label for="input-key">KEYWORDS</label>
+        <input type="text" id="input-key" placeholder="KEYWORDS" required="required" class="field"/>
       </div>
     </div>
     <div class="footer">
       <div class="form-group">
-        <div class="action cancel">CANCEL</div>
-        <div class="action submit">SUBMIT THIS LINK</div>
+        <div ng-click="cancel()" class="action cancel">CANCEL</div>
+        <div ng-click="submit()" class="action submit">SUBMIT THIS LINK</div>
       </div>
     </div>
   </div>

@@ -261,35 +261,41 @@ table {
   position: relative;
   width: 100%;
 }
-.form-group > label {
-  color: #333;
-  display: block;
-  font-size: 18px;
-  font-weight: 300;
-  height: 25px;
-  letter-spacing: 0.8px;
-  line-height: 25px;
-  top: 40px;
-  position: absolute;
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
-}
 .form-group > .field {
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #3498db 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #3498db 4%);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
   border: none;
   border-bottom: 1px solid grey;
-  bottom: 0;
+  border-radius: 0;
   font-family: "Lato", "Helvetica", "Arial", "sans-serif";
   font-size: 20px;
   font-weight: 300;
   height: 45px;
+  margin-top: 25px;
   outline: none;
   padding: 0;
-  position: absolute;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
   width: 100%;
 }
-.form-group > .field:valid + label, .form-group > .field:focus + label {
+.form-group > .field::-webkit-input-placeholder {
+  color: #333;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+  visibility: visible !important;
+}
+.form-group > .field:valid, .form-group > .field:focus {
+  background-size: 100% 100%;
+}
+.form-group > .field:valid::-webkit-input-placeholder, .form-group > .field:focus::-webkit-input-placeholder {
   font-size: 16px;
-  top: 0;
+  -webkit-transform: translateY(-30px);
+          transform: translateY(-30px);
 }
 .form-group > .action {
   background: none;
@@ -444,7 +450,7 @@ footer {
 }
 
 header {
-  background: url("http://avathemes.com/WP/Pulsar/wp-content/uploads/2013/02/bg2.jpg") center center no-repeat;
+  background: url("../img/bg.jpg") center center no-repeat;
   background-size: cover;
   height: 50px;
   position: fixed;
