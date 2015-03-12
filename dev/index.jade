@@ -14,9 +14,15 @@ html(lang="en")
 					.icon.fa.fa-search
 
 		main
+			ul
+				li
+					a(ui-sref="links") all links
+				li
+					a(ui-sref="new") new links
 
-			section(ng-view)
 
+
+		section(ui-view='')
 
 
 		//footer
@@ -26,7 +32,7 @@ html(lang="en")
 
 
 
-		.add
+		//.add
 			input(type="text" ng-model="title")
 			input(type="text" ng-model="url")
 			input(type="button" value="hinzufügen" ng-click="add()")

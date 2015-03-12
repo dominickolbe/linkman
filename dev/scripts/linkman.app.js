@@ -81,5 +81,3 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
 
 });
-
-

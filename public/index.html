@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <title>Document</title>
+    <base href="/"/>
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <link rel="stylesheet" href="css/main.css"/>
@@ -22,8 +23,12 @@
       </div>
     </header>
     <main>
-      <section ng-view="ng-view"></section>
+      <ul>
+        <li><a ui-sref="links">all links</a></li>
+        <li><a ui-sref="new">new links</a></li>
+      </ul>
     </main>
+    <section ui-view=""></section>
     <!--footer
     .page-wrapper
     	.icon.fa.fa-code  dominic kolbe
@@ -32,15 +37,22 @@
     
     
     -->
-    <div class="add">
-      <input type="text" ng-model="title"/>
-      <input type="text" ng-model="url"/>
-      <input type="button" value="hinzufügen" ng-click="add()"/><i ng-click="reset()" class="resetdata">reset data</i><i ng-click="" class="adddata">add data</i>
-    </div>
+    <!--.add
+    input(type="text" ng-model="title")
+    input(type="text" ng-model="url")
+    input(type="button" value="hinzufügen" ng-click="add()")
+    
+    
+    i.resetdata(ng-click="reset()") reset data
+    
+    i.adddata(ng-click="") add data
+    
+    -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
     <script type="text/javascript" src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-animate.min.js"></script>
