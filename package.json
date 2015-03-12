@@ -24,6 +24,6 @@
     },
     "homepage": "https://github.com/donkolbe/linkman",
     "dependencies": {
-        "express": "^4.12.2"
+        "express": "~4.9.8"
     }
 }
