@@ -1,0 +1,26 @@
+{
+  "name": "linkman",
+  "version": "1.0.0",
+  "description": "link manager",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/donkolbe/linkman.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Dominic Kolbe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donkolbe/linkman/issues"
+  },
+  "homepage": "https://github.com/donkolbe/linkman",
+  "dependencies": {
+    "express": "^4.12.2"
+  }
+}
