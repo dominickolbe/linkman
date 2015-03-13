@@ -1,12 +1,15 @@
 var express = require('express'),
     app     = express();
-var port = process.env.PORT || 3000;
+var port    = process.env.PORT || 3000;
 
 
 app
     .use(express.static('./public'))
+
     .get('*', function(req, res) {
         res.sendfile('public/index.html');
     })
+    
     .listen(port);
+
 
