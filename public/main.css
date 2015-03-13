@@ -1,9 +1,10 @@
-/* IMPORT ALL SASS FILES */
+/* IMPORT ALL SUB-SASS-FILES */
 /* page-dims */
 /* fonts */
 /* images */
 /* coolors */
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+@import url("Gotham/font.css");
 .animated {
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
@@ -121,9 +122,10 @@ table {
 
 html, body {
   background: #fbfbfb;
-  font-family: "Lato", "Helvetica", "Arial", "sans-serif";
+  font-family: "Gotham", "Lato", "Helvetica", "Arial", "sans-serif";
   height: 100%;
   width: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -166,23 +168,16 @@ main {
   color: white;
 }
 
-[ui-view] {
-  -webkit-transition: all 1s ease;
-          transition: all 1s ease;
-}
-[ui-view].ng-enter {
-  opacity: 0;
-}
-[ui-view].ng-enter-active {
-  opacity: 1;
-}
-
 header {
   background: url("/img/bg.jpg") center center no-repeat;
   background-size: cover;
   height: 70px;
   position: fixed;
   top: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 100%;
   z-index: 9;
 }
@@ -190,8 +185,8 @@ header h1.title {
   color: white;
   cursor: default;
   float: left;
+  font-family: Gotham-Light;
   font-size: 2em;
-  font-weight: 100;
   line-height: 70px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -199,15 +194,16 @@ header h1.title {
           user-select: none;
 }
 header .action {
-  border: 2px solid white;
-  border-radius: 3px;
+  border: 1px solid white;
+  border-radius: 4px;
   color: white;
   cursor: pointer;
   float: right;
-  font-weight: 300;
+  font-size: 14px;
+  height: 30px;
   letter-spacing: 1px;
-  margin-top: 17px;
-  padding: 7px 0;
+  line-height: 30px;
+  margin-top: 20px;
   text-align: center;
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
@@ -216,7 +212,6 @@ header .action {
 header .action:hover {
   background: white;
   color: #333;
-  font-weight: 400;
 }
 
 footer {
@@ -229,12 +224,45 @@ footer {
   z-index: 9;
 }
 
-#addlink {
-  position: relative;
+#addlink-modal {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+  width: 800px;
+}
+#addlink-modal.ng-enter {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: linkcontainerbounceInDown;
+          animation-name: linkcontainerbounceInDown;
+}
+#addlink-modal.ng-enter-active {
+  opacity: 1;
+}
+#addlink-modal.ng-leave {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-name: linkcontainerbounceInDown;
+          animation-name: linkcontainerbounceInDown;
+  -webkit-animation-direction: reverse;
+          animation-direction: reverse;
+  opacity: 1;
+}
+#addlink-modal.ng-leave-active {
+  opacity: 0;
 }
 
 .addlink-form {
   background: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 .addlink-form > .header {
   background: white;
@@ -277,15 +305,6 @@ footer {
 .addlink-form > .footer {
   height: 70px;
   width: 100%;
-}
-
-.show {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-name: linkcontainerbounceInDown;
-          animation-name: linkcontainerbounceInDown;
 }
 
 @-webkit-keyframes linkcontainerbounceInDown {
@@ -379,7 +398,7 @@ footer {
   border: none;
   border-bottom: 1px solid grey;
   border-radius: 0;
-  font-family: "Lato", "Helvetica", "Arial", "sans-serif";
+  font-family: "Gotham", "Lato", "Helvetica", "Arial", "sans-serif";
   font-size: 20px;
   font-weight: 300;
   height: 45px;

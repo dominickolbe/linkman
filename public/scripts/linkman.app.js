@@ -36,7 +36,11 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
 
 
-.controller('mainController', function($scope, fbService) {
+.controller('AppController', function($scope, fbService, $state) {
+
+    $scope.openAddLink = function(){
+        $state.go('links.add');
+    }
 
     $scope.reset = function() {
         fbService.$remove();

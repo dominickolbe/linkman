@@ -4,6 +4,7 @@ header
 	height: $header-height
 	position: fixed
 	top: 0
+	user-select: none
 	width: 100%
 	z-index: 9
 
@@ -11,21 +12,22 @@ header
 		color: white
 		cursor: default
 		float: left
+		font-family: Gotham-Light
 		font-size: 2em
-		font-weight: 100
 		line-height: $header-height
 		user-select: none
 
 	.action
-		border: 2px solid white
-		border-radius: 3px
+		border: 1px solid white
+		border-radius: 4px
 		color: white
 		cursor: pointer
 		float: right
-		font-weight: 300
+		font-size: 14px
+		height: 30px
 		letter-spacing: 1px
-		margin-top: 17px
-		padding: 7px 0
+		line-height: 30px
+		margin-top: 20px
 		text-align: center
 		transition: all .2s ease
 		width: 130px
@@ -33,6 +35,5 @@ header
 		&:hover
 			background: white
 			color: #333
-			font-weight: 400
 
 			

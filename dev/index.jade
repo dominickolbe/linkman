@@ -3,35 +3,22 @@ html(lang="en")
 	head
 		include ./templates/html-header.jade
 
-	body(ng-app="linkmanApp" ng-controller="mainController")
+	body(ng-app="linkmanApp" ng-controller="AppController")
 
 		header
 			.page-wrapper
 				h1.title
 					.icon.fa.fa-connectdevelop 
 					span  LINKMAN
-				.action NEW LINK
+				.action(ng-click="openAddLink()") NEW LINK
 
-		main
-			section(ui-view='')
+		main(ui-view='')
 
 
 		//footer
 			.page-wrapper
 				.icon.fa.fa-code  dominic kolbe
 
-
-
-
-		//.add
-			input(type="text" ng-model="title")
-			input(type="text" ng-model="url")
-			input(type="button" value="hinzufügen" ng-click="add()")
-
-
-			i.resetdata(ng-click="reset()") reset data
-
-			i.adddata(ng-click="") add data
 
 		include ./templates/html-footer.jade
 	
