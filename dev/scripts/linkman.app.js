@@ -15,19 +15,19 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
     .state('links', {
         url: '/links',
-        templateUrl: 'views/view-linkcontainer.html',
+        templateUrl: 'views/link-list.html',
         controller: 'ListController'
     })
 
     .state('links.add', {
         url: '/add',
-        templateUrl: 'views/view-addlink.html',
+        templateUrl: 'views/link-add.html',
         controller: 'AddLinkController'
     })
 
     .state('links.edit', {
         url: '/edit',
-        templateUrl: 'views/view-addlink.html'
+        templateUrl: 'views/link.add.html'
     });
 
     $locationProvider
