@@ -6,12 +6,14 @@ linkcontainer
 
 	>.header
 		background: white
-		border-top: 2px $color-carrot solid
+		border-top: 2px $color-peterriver solid
 		border-bottom: 1px solid rgba(0,0,0,0.1)
+		cursor: default
 		height: 60px
 		letter-spacing: .05em
 		line-height: 60px
 		padding-left: 20px
+		user-select: none
 
 	>.list
 		height: 100%
@@ -22,7 +24,6 @@ linkcontainer
 	@include size(100%, $link-height)
 	background: $link-background2
 	//border-top: 1px solid #DEDEDE
-	user-select: none
 	transition: all .2s ease-in-out
 	white-space: nowrap
 	&:nth-child(2n)
@@ -63,7 +64,6 @@ linkcontainer
 		padding-left: 30px
 		text-overflow: ellipsis
 		overflow: hidden
-		user-select: text
 		width: 730px
 
 		@media only screen and (max-width: $page-width)

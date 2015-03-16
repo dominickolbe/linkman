@@ -3,79 +3,10 @@
 /* fonts */
 /* images */
 /* coolors */
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
-@import url("Gotham/font.css");
-.animated {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-}
-
-@-webkit-keyframes bounceInDown {
-  0%, 60%, 75%, 90%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -3000px, 0);
-            transform: translate3d(0, -3000px, 0);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 25px, 0);
-            transform: translate3d(0, 25px, 0);
-  }
-  75% {
-    -webkit-transform: translate3d(0, -10px, 0);
-            transform: translate3d(0, -10px, 0);
-  }
-  90% {
-    -webkit-transform: translate3d(0, 5px, 0);
-            transform: translate3d(0, 5px, 0);
-  }
-  100% {
-    -webkit-transform: none;
-            transform: none;
-  }
-}
-
-@keyframes bounceInDown {
-  0%, 60%, 75%, 90%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -3000px, 0);
-            transform: translate3d(0, -3000px, 0);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 25px, 0);
-            transform: translate3d(0, 25px, 0);
-  }
-  75% {
-    -webkit-transform: translate3d(0, -10px, 0);
-            transform: translate3d(0, -10px, 0);
-  }
-  90% {
-    -webkit-transform: translate3d(0, 5px, 0);
-            transform: translate3d(0, 5px, 0);
-  }
-  100% {
-    -webkit-transform: none;
-            transform: none;
-  }
-}
-.bounceInDown {
-  -webkit-animation-name: bounceInDown;
-          animation-name: bounceInDown;
-}
-
 /* usage:  @include is-#### */
 /* usage: @include clearfix */
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+@import url("Gotham/font.css");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -122,7 +53,7 @@ table {
 
 html, body {
   background: #fbfbfb;
-  font-family: "Gotham", "Lato", "Helvetica", "Arial", "sans-serif";
+  font-family: "Gotham-Book", "Lato", "Helvetica", "Arial", "sans-serif";
   height: 100%;
   width: 100%;
   -webkit-font-smoothing: antialiased;
@@ -195,7 +126,7 @@ header h1.title {
 }
 header .action {
   border: 1px solid white;
-  border-radius: 4px;
+  border-radius: 1px;
   color: white;
   cursor: pointer;
   float: right;
@@ -207,7 +138,7 @@ header .action {
   text-align: center;
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
-  width: 130px;
+  width: 180px;
 }
 header .action:hover {
   background: white;
@@ -233,31 +164,35 @@ footer {
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
   width: 800px;
+  z-index: 10;
 }
 #addlink-modal.ng-enter {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-name: linkcontainerbounceInDown;
           animation-name: linkcontainerbounceInDown;
 }
-#addlink-modal.ng-enter-active {
-  opacity: 1;
-}
 #addlink-modal.ng-leave {
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-name: linkcontainerbounceInDown;
           animation-name: linkcontainerbounceInDown;
   -webkit-animation-direction: reverse;
           animation-direction: reverse;
-  opacity: 1;
 }
-#addlink-modal.ng-leave-active {
-  opacity: 0;
+
+.addlink-mask {
+  background: rgba(0, 0, 0, 0.6);
+  height: 250%;
+  left: -50%;
+  position: fixed;
+  top: -50%;
+  width: 200%;
+  z-index: -1;
 }
 
 .addlink-form {
@@ -314,23 +249,11 @@ footer {
   }
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(-50%, -3000px, 0);
-            transform: translate3d(-50%, -3000px, 0);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(-50%, calc(-50% + 25px), 0);
-            transform: translate3d(-50%, calc(-50% + 25px), 0);
-  }
-  75% {
-    -webkit-transform: translate3d(-50%, calc(-50% -10px), 0);
-            transform: translate3d(-50%, calc(-50% -10px), 0);
-  }
-  90% {
-    -webkit-transform: translate3d(-50%, calc(-50% + 5px), 0);
-            transform: translate3d(-50%, calc(-50% + 5px), 0);
+    -webkit-transform: translate3d(-50%, -100%, 0);
+            transform: translate3d(-50%, -100%, 0);
   }
   100% {
+    opacity: 1;
     -webkit-transform: translate3d(-50%, -50%, 0);
             transform: translate3d(-50%, -50%, 0);
   }
@@ -343,23 +266,11 @@ footer {
   }
   0% {
     opacity: 0;
-    -webkit-transform: translate3d(-50%, -3000px, 0);
-            transform: translate3d(-50%, -3000px, 0);
-  }
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(-50%, calc(-50% + 25px), 0);
-            transform: translate3d(-50%, calc(-50% + 25px), 0);
-  }
-  75% {
-    -webkit-transform: translate3d(-50%, calc(-50% -10px), 0);
-            transform: translate3d(-50%, calc(-50% -10px), 0);
-  }
-  90% {
-    -webkit-transform: translate3d(-50%, calc(-50% + 5px), 0);
-            transform: translate3d(-50%, calc(-50% + 5px), 0);
+    -webkit-transform: translate3d(-50%, -100%, 0);
+            transform: translate3d(-50%, -100%, 0);
   }
   100% {
+    opacity: 1;
     -webkit-transform: translate3d(-50%, -50%, 0);
             transform: translate3d(-50%, -50%, 0);
   }
@@ -398,7 +309,7 @@ footer {
   border: none;
   border-bottom: 1px solid grey;
   border-radius: 0;
-  font-family: "Gotham", "Lato", "Helvetica", "Arial", "sans-serif";
+  font-family: "Gotham-Book", "Lato", "Helvetica", "Arial", "sans-serif";
   font-size: 20px;
   font-weight: 300;
   height: 45px;
@@ -446,7 +357,7 @@ footer {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 .form-group > .action.submit:hover {
-  background: #3498db;
+  background: #34495e;
   color: white;
 }
 
@@ -457,12 +368,17 @@ linkcontainer {
 }
 linkcontainer > .header {
   background: white;
-  border-top: 2px #e67e22 solid;
+  border-top: 2px #3498db solid;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: default;
   height: 60px;
   letter-spacing: 0.05em;
   line-height: 60px;
   padding-left: 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 linkcontainer > .list {
   height: 100%;
@@ -472,10 +388,6 @@ linkcontainer > .list {
   height: 40px;
   width: 100%;
   background: #f9f9f9;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
   white-space: nowrap;
@@ -519,10 +431,6 @@ linkcontainer > .list {
   padding-left: 30px;
   text-overflow: ellipsis;
   overflow: hidden;
-  -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text;
   width: 730px;
 }
 @media only screen and (max-width: 1200px) {

@@ -7,12 +7,11 @@
 				.link.animate-repeat(ng-repeat="link in links")
 					.icon.fa.fa-bookmark-o
 					.title(title="test") {{ link.title }}
-					.linktext {{ link.src }}
+					.linktext {{ link.url }}
 					.link-controls
 						.icon.fa.fa-files-o
-						.icon.fa.fa-pencil
-						.icon.fa.fa-trash-o
+						.icon.fa.fa-pencil(ng-click="openEditLink()")
+						.icon.fa.fa-trash-o(ng-click="links.$remove(link)")
 
-		a(ui-sref=".add") add links
 
-.modal(ui-view='')
+#addlink-modal(ui-view='')

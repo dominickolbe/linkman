@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
-var apfx = require('gulp-autoprefixer');
+var autoprefixer = require('gulp-autoprefixer');
 var jade = require('gulp-jade');
 
 gulp.task('default', ['views', 'sass', 'scripts', 'images', 'watch']);
@@ -21,7 +21,7 @@ gulp.task('sass', function() {
         .on('error', function(err) {
             console.error('Error!', err.message);
         })
-        .pipe(apfx())
+        .pipe(autoprefixer())
         .pipe(gulp.dest('public/'));
 });
 

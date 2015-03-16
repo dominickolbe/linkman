@@ -2,9 +2,9 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
 .constant('FBURL', "https://linkman.firebaseio.com/links")
 
-.factory('fbService', function($firebase, FBURL) {
+.factory('fbService', function($firebaseArray, FBURL) {
     var ref = new Firebase(FBURL);
-    return $firebase(ref);
+    return $firebaseArray(ref);
 })
 
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -13,7 +13,7 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
     $stateProvider
 
-    .state('links', {
+        .state('links', {
         url: '/links',
         templateUrl: 'views/link-list.html',
         controller: 'ListController'
@@ -27,7 +27,8 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
     .state('links.edit', {
         url: '/edit',
-        templateUrl: 'views/link.add.html'
+        templateUrl: 'views/link-edit.html',
+        controller: 'EditController'
     });
 
     $locationProvider
@@ -38,8 +39,12 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
 .controller('AppController', function($scope, fbService, $state) {
 
-    $scope.openAddLink = function(){
+    $scope.openAddLink = function() {
         $state.go('links.add');
+    }
+
+    $scope.openEditLink = function() {
+        $state.go('links.edit');
     }
 
     $scope.reset = function() {
@@ -50,9 +55,7 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
 .controller('ListController', function($scope, fbService) {
 
-    var syncObject = fbService.$asObject();
-
-    syncObject.$bindTo($scope, 'links');
+    $scope.links = fbService;
 
 })
 
@@ -62,10 +65,10 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
     $scope.submit = function() {
 
-        fbService.$push({
+        fbService.$add({
 
             title: $scope.title,
-            src: $scope.url
+            url: $scope.url
 
         });
 
@@ -73,15 +76,26 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
     };
 
-    $scope.cancel = function(){
+    $scope.cancel = function() {
         $state.go('links');
     }
 
 
 })
 
-.controller('EditController', function($scope, fbService) {
+.controller('EditController', function($scope, fbService, $state) {
 
+    var links = fbService;
+
+    $scope.links = links;
+
+    $scope.link = links[1];
+
+    console.log(links[0]);
+
+    $scope.cancel = function() {
+        $state.go('links');
+    }
 
 
 });

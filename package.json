@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "express": "^4.9.8",
+    "gulp": "^3.8.11",
     "gulp-jade": "^1.0.0",
     "gulp-ruby-sass": "^1.0.0-alpha.3"
   }
