@@ -16,7 +16,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, linkcontainer, addlink {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, linkcontainer, addlink, mask {
   display: block;
 }
 
@@ -79,14 +79,14 @@ main {
   margin-bottom: 70px;
 }
 
-#mask {
-  background: rgba(0, 0, 0, 0.3);
+mask {
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
   height: 100%;
   position: fixed;
   top: 0;
-  -webkit-transition: all 0.3s;
-          transition: all 0.3s;
   width: 100%;
+  z-index: 2;
 }
 
 ::-moz-selection {
@@ -110,7 +110,7 @@ header {
       -ms-user-select: none;
           user-select: none;
   width: 100%;
-  z-index: 9;
+  z-index: 1;
 }
 header h1.title {
   color: white;
@@ -126,7 +126,7 @@ header h1.title {
 }
 header .action {
   border: 1px solid white;
-  border-radius: 1px;
+  border-radius: 2px;
   color: white;
   cursor: pointer;
   float: right;
@@ -164,7 +164,7 @@ footer {
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
   width: 800px;
-  z-index: 10;
+  z-index: 3;
 }
 #addlink-modal.ng-enter {
   -webkit-animation-duration: 0.4s;
@@ -183,16 +183,6 @@ footer {
           animation-name: linkcontainerbounceInDown;
   -webkit-animation-direction: reverse;
           animation-direction: reverse;
-}
-
-.addlink-mask {
-  background: rgba(0, 0, 0, 0.6);
-  height: 250%;
-  left: -50%;
-  position: fixed;
-  top: -50%;
-  width: 200%;
-  z-index: -1;
 }
 
 .addlink-form {
@@ -220,8 +210,6 @@ footer {
   float: right;
   line-height: 60px;
   text-align: center;
-  -webkit-transition: color 200ms ease-in-out;
-          transition: color 200ms ease-in-out;
   width: 60px;
 }
 .addlink-form > .header > .icon:hover {
@@ -329,12 +317,52 @@ footer {
           transition: all 0.2s ease;
   visibility: visible !important;
 }
+.form-group > .field::-moz-placeholder {
+  color: #333;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  transition: all 0.2s ease;
+  visibility: visible !important;
+}
+.form-group > .field:-ms-input-placeholder {
+  color: #333;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  transition: all 0.2s ease;
+  visibility: visible !important;
+}
+.form-group > .field::placeholder {
+  color: #333;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+  visibility: visible !important;
+}
 .form-group > .field:valid, .form-group > .field:focus {
   background-size: 100% 100%;
 }
 .form-group > .field:valid::-webkit-input-placeholder, .form-group > .field:focus::-webkit-input-placeholder {
   font-size: 16px;
   -webkit-transform: translateY(-30px);
+          transform: translateY(-30px);
+}
+.form-group > .field:valid::-moz-placeholder, .form-group > .field:focus::-moz-placeholder {
+  font-size: 16px;
+  transform: translateY(-30px);
+}
+.form-group > .field:valid:-ms-input-placeholder, .form-group > .field:focus:-ms-input-placeholder {
+  font-size: 16px;
+  -ms-transform: translateY(-30px);
+      transform: translateY(-30px);
+}
+.form-group > .field:valid::placeholder, .form-group > .field:focus::placeholder {
+  font-size: 16px;
+  -webkit-transform: translateY(-30px);
+      -ms-transform: translateY(-30px);
           transform: translateY(-30px);
 }
 .form-group > .action {
@@ -355,6 +383,9 @@ footer {
 }
 .form-group > .action.cancel {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form-group > .action.cancel:hover {
+  background: #ecf0f1;
 }
 .form-group > .action.submit:hover {
   background: #34495e;
@@ -402,6 +433,7 @@ linkcontainer > .list {
   float: left;
   line-height: 40px;
   text-align: center;
+  text-decoration: none;
   -webkit-transition: color 200ms ease-in-out;
           transition: color 200ms ease-in-out;
   width: 40px;

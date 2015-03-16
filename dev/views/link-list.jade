@@ -5,13 +5,13 @@
 				span LINKS
 			.list
 				.link.animate-repeat(ng-repeat="link in links")
-					.icon.fa.fa-bookmark-o
+					.icon.icon-ribbon
 					.title(title="test") {{ link.title }}
 					.linktext {{ link.url }}
 					.link-controls
-						.icon.fa.fa-files-o
-						.icon.fa.fa-pencil(ng-click="openEditLink()")
-						.icon.fa.fa-trash-o(ng-click="links.$remove(link)")
+						a(href="{{ link.url }}" target="_blank").icon.icon-open
+						.icon.icon-clipboard(ng-click="openEditLink()")
+						.icon.icon-trash(ng-click="links.$remove(link)")
 
 
 #addlink-modal(ui-view='')

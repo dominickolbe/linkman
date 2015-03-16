@@ -7,10 +7,14 @@ gulp.task('default', ['views', 'sass', 'scripts', 'images', 'watch']);
 
 gulp.task('views', function() {
     gulp.src('dev/index.jade')
-        .pipe(jade())
+        .pipe(jade({
+            pretty: true
+        }))
         .pipe(gulp.dest('public/'));
     gulp.src('dev/views/*')
-        .pipe(jade())
+        .pipe(jade({
+            pretty: true
+        }))
         .pipe(gulp.dest('public/views/'));
 });
 

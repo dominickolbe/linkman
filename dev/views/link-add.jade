@@ -1,12 +1,11 @@
-.addlink-mask
 .addlink-form
 	.header
 		h3.title ADD A NEW LINK
-		i.icon.fa.fa-times(ng-click="cancel()")
+		i.icon.icon-cross(ng-click="cancel()")
 	//p http://tympanus.net/Development/DialogEffects/cathy.html
 	.main
 		.form-group
-			input.field(type="text" id="input-title" placeholder="TITLE" required ng-model="title")
+			input.field(type="text" id="input-title" placeholder="TITLE" required ng-model="title" value="test")
 			
 		.form-group
 			input.field(type="text" id="input-url" placeholder="URL" required ng-model="url")
@@ -16,5 +15,7 @@
 
 	.footer
 		.form-group
-			.action.cancel(ng-click="cancel()") CANCEL
-			.action.submit(ng-click="submit()") SUBMIT THIS LINK
+			.action.cancel(ng-click="cancel()") a
+				span.icon-close
+			.action.submit(ng-click="submit()") 
+				span.icon-check2
