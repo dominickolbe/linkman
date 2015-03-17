@@ -2,6 +2,25 @@ var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var jade = require('gulp-jade');
+var uglify = require('gulp-uglify');
+var rename = require("gulp-rename");
+var ngmin = require('gulp-ngmin');
+
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
+
+var config = {
+    proxy: "localhost:3000",
+    scrollProportionally: true,
+    ghostMode: {
+        clicks: true,
+        forms: true,
+        scroll: true
+    },
+    scrollThrottle: 100
+};
+
+browserSync(config);
 
 gulp.task('default', ['views', 'sass', 'scripts', 'images', 'watch']);
 
@@ -16,6 +35,7 @@ gulp.task('views', function() {
             pretty: true
         }))
         .pipe(gulp.dest('public/views/'));
+    reload();
 });
 
 gulp.task('sass', function() {
@@ -26,12 +46,25 @@ gulp.task('sass', function() {
             console.error('Error!', err.message);
         })
         .pipe(autoprefixer())
-        .pipe(gulp.dest('public/'));
+        .pipe(gulp.dest('public/'))
+        .pipe(reload({
+            stream: true
+        }));
 });
 
 gulp.task('scripts', function() {
-    gulp.src('dev/scripts/*')
+    gulp.src('dev/scripts/app.js')
+        .pipe(ngmin({
+            dynamic: false
+        }))
+        .pipe(uglify({
+            mangle: false
+        }))
+        .pipe(rename({
+            suffix: '.min'
+        }))
         .pipe(gulp.dest('public/scripts/'));
+    reload();
 });
 
 gulp.task('images', function() {

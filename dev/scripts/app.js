@@ -36,7 +36,6 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 })
 
 
-
 .controller('AppController', function($scope, fbService, $state) {
 
     $scope.openAddLink = function() {
