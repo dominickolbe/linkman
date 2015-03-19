@@ -62,7 +62,7 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
     //$scope.fb = fbService;
 
-    
+
 
     $scope.submit = function() {
 

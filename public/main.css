@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* IMPORT ALL SUB-SASS-FILES */
 /* page-dims */
 /* fonts */
@@ -7,6 +8,7 @@
 /* usage: @include clearfix */
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
 @import url("Gotham/font.css");
+@import url("Icons/font.css");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -376,20 +378,52 @@ footer {
   line-height: 70px;
   margin: 0;
   padding: 0;
+  position: relative;
   text-align: center;
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
+  overflow: hidden;
   width: 50%;
+}
+.form-group > .action span {
+  display: block;
+  -webkit-transition: all 0.3s;
+          transition: all 0.3s;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+.form-group > .action:after {
+  font-family: "icomoon";
+  left: 50%;
+  position: absolute;
+  -webkit-transition: all 0.15s cubic-bezier(0.75, 0, 0.125, 1);
+          transition: all 0.15s cubic-bezier(0.75, 0, 0.125, 1);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  opacity: 0;
+}
+.form-group > .action:hover span {
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  opacity: 0;
+}
+.form-group > .action:hover:after {
+  -webkit-transform: translate3d(-50%, -100%, 0);
+          transform: translate3d(-50%, -100%, 0);
+  -webkit-transition-delay: 0.55s;
+          transition-delay: 0.55s;
+  opacity: 1;
 }
 .form-group > .action.cancel {
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
-.form-group > .action.cancel:hover {
-  background: #ecf0f1;
+.form-group > .action.cancel:after {
+  content: "";
 }
-.form-group > .action.submit:hover {
-  background: #34495e;
-  color: white;
+.form-group > .action.submit:after {
+  content: "";
 }
 
 linkcontainer {
