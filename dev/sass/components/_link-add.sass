@@ -3,17 +3,24 @@
 	position: fixed
 	top: 50%
 	transform: translate3d(-50%,-50%,0)
-	transition: all .3s ease
+	backface-visibility: hidden
+	perspective: 1000
 	width: 800px
 	z-index: 3
 
+	animation-delay: .01s
+	animation-duration: 0
+
+	@media only screen and (max-width: $page-width)
+		width: 100%
+
 	&.ng-enter
-		animation-duration: .4s
+		animation-duration: 400ms
 		animation-fill-mode: both
 		animation-name: linkcontainerbounceInDown
 
 	&.ng-leave
-		animation-duration: .4s
+		animation-duration: 400ms
 		animation-fill-mode: both
 		animation-name: linkcontainerbounceInDown
 		animation-direction: reverse
@@ -31,6 +38,7 @@
 		height: 60px
 
 		>h3.title
+			color: $text-color
 			float: left
 			letter-spacing: .05em
 			line-height: 60px
@@ -38,23 +46,24 @@
 
 		>.icon
 			border-left: 1px solid rgba(0,0,0,0.1)
-			color: rgba(0,0,0,0.6)
+			color: rgba(0,0,0,0.5)
 			cursor: pointer
 			height: 60px
 			float: right
 			line-height: 60px
 			text-align: center
-			//transition: color 200ms ease-in-out
+			transition: color .2s ease
 			width: 60px
 			&:hover
 				color: rgba(0,0,0,0.7)
 			&:active
-				color: rgba(0,0,0,0.8)
+				color: rgba(0,0,0,1)
 				transition: none
 
 	>.main
 		border-bottom: 1px solid rgba(0,0,0,0.1)
-		padding: 35px 25px
+		color: $text-color
+		padding: 40px 25px 0
 		width: 100%
 
 	>.footer

@@ -86,15 +86,24 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
 
 .controller('EditController', function($scope, fbService, $state) {
 
-    var links = fbService;
+    //$scope.links = fbService;
 
-    $scope.links = links;
+    $scope.link = $scope.links[1];
 
-    $scope.link = links[1];
+    var save = $scope.links[1];
 
-    console.log(links[0]);
+    save.title = 'test';
+
+
+
+    $scope.save = function() {
+        fbService.$save($scope.link);
+        $state.go('links');
+    }
+
 
     $scope.cancel = function() {
+        $scope.links[1] = save;
         $state.go('links');
     }
 

@@ -1,40 +1,43 @@
 .form-group
 	height: 70px
-	margin-bottom: 20px
+	margin-bottom: 25px
 	position: relative
 	width: 100%
 
 	>.field
-		background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, $color-peterriver 4%)
+		background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 98%, $color-peterriver 2%)
 		background-size: 0% 100%
 		background-repeat: no-repeat
 		border: none
-		border-bottom: 1px solid grey
+		border-bottom: 1px solid rgba(0,0,0,0.1)
 		border-radius: 0
-		font-family: $page-font
+		color: $text-color
+		font-family: $Gotham-Book
 		font-size: 20px
 		font-weight: 300
 		height: 45px
-		margin-top: 25px
 		outline: none
 		padding: 0
-		transition: all .2s ease
+		transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1)
 		width: 100%
 
 		&::placeholder
-			color: #333
+			color: $text-color
 			font-size: 18px
 			font-weight: 300
 			letter-spacing: .8px
-			transition: all .2s ease
+			transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1)
+			backface-visibility: hidden
+			perspective: 1000
 			visibility: visible!important
 
 		&:valid, &:focus
 			background-size: 100% 100%
 
 			&::placeholder
-				font-size: 16px
-				transform: translateY(-30px)
+				font-size: 14px
+				font-family: $Gotham-Medium
+				transform: translate3d(0%, -115%, 0)
 
 	>.action
 		background: none
@@ -49,28 +52,27 @@
 		padding: 0
 		position: relative
 		text-align: center
-		//transition: all .2s ease
+		transition: all .2s ease
 		overflow: hidden
 		width: 50%
 
 		span
 			display: block
-			transition: all .3s
+			transition: all .3s ease
 			transition-delay: .3s
 
 		&:after
 			font-family: 'icomoon'
 			left: 50%
 			position: absolute
-			transition: all .15s cubic-bezier(0.75, 0, 0.125, 1)
+			transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
 			transition-delay: 0s
 			transform: translate3d(-50%, -50%, 0)
+			backface-visibility: hidden
+			perspective: 1000
 			opacity: 0
 
-
 		&:hover
-			//background: $color-clouds
-
 			span
 				transform: translate3d(0, -50%, 0)
 				transition-delay: 0s
@@ -78,26 +80,24 @@
 
 			&:after
 				transform: translate3d(-50%, -100%, 0)
-				transition-delay: .55s
+				transition-delay: .15s
 				opacity: 1
 
 
 		&.cancel
-			border-right: 1px solid rgba(0,0,0,0.1)
-
 			&:after
 				content: "\e117"
 
+			&:hover
+				background: $page-background
+
 			
 		&.submit
+			border-left: 1px solid rgba(0,0,0,0.1)
 			&:after
 				content: "\e116"
-				//color: white
-
+				color: white
 			&:hover
-				//background: $color-wetasphalt
-				//color: white
+				background: $color-wetasphalt
 
-				span
-					//white
 

@@ -1,9 +1,7 @@
 linkcontainer
-	background: white
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1)
 	position: relative
 	
-
 	>.header
 		background: white
 		border-top: 2px $color-peterriver solid
@@ -31,6 +29,18 @@ linkcontainer
 	&:last-child
 		//border: none
 
+	&.ng-enter-stagger
+		transition-delay: .02s
+		transition-duration: 0
+
+	&.ng-leave.ng-leave-active, &.ng-move, &.ng-enter
+		opacity: 0
+		transform: translate3d(50px, 0, 0)
+
+	&.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter-active
+		opacity: 1
+		transform: translate3d(0, 0, 0)
+
 	.icon
 		color: rgba(0, 0, 0,.5)
 		cursor: pointer
@@ -43,7 +53,7 @@ linkcontainer
 		width: $link-height
 
 	.title
-		color: $linktext-color
+		color: $text-color
 		cursor: default
 		float: left
 		font-size: 1em
@@ -59,6 +69,7 @@ linkcontainer
 			width: 50%
 
 	.linktext
+		color: $text-color
 		float: left
 		font-size: 12px
 		line-height: $link-height
@@ -89,15 +100,10 @@ linkcontainer
 			color: rgba(52, 73, 94,1)
 
 
-.animate-repeat.ng-enter-stagger
-	transition-delay: .02s
-	animation-delay: .02s
 
 
 
-.animate-repeat.ng-leave.ng-leave-active, .animate-repeat.ng-move, .animate-repeat.ng-enter
-	opacity: 0
 
 
-.animate-repeat.ng-leave, .animate-repeat.ng-move.ng-move-active, .animate-repeat.ng-enter.ng-enter-active
-	opacity: 1
+
+

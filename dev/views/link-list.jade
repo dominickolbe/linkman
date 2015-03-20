@@ -4,7 +4,7 @@
 			.header 
 				span LINKS
 			.list
-				.link.animate-repeat(ng-repeat="link in links")
+				.link(ng-repeat="link in links")
 					.icon.icon-ribbon
 					.title(title="test") {{ link.title }}
 					.linktext {{ link.url }}

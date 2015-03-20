@@ -118,7 +118,7 @@ header h1.title {
   color: white;
   cursor: default;
   float: left;
-  font-family: Gotham-Light;
+  font-family: "Gotham-Light", "Lato", "Helvetica", "Arial", "sans-serif";
   font-size: 2em;
   line-height: 70px;
   -webkit-user-select: none;
@@ -163,22 +163,33 @@ footer {
   top: 50%;
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);
-  -webkit-transition: all 0.3s ease;
-          transition: all 0.3s ease;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000;
+          perspective: 1000;
   width: 800px;
   z-index: 3;
+  -webkit-animation-delay: 0.01s;
+          animation-delay: 0.01s;
+  -webkit-animation-duration: 0;
+          animation-duration: 0;
+}
+@media only screen and (max-width: 1200px) {
+  #addlink-modal {
+    width: 100%;
+  }
 }
 #addlink-modal.ng-enter {
-  -webkit-animation-duration: 0.4s;
-          animation-duration: 0.4s;
+  -webkit-animation-duration: 400ms;
+          animation-duration: 400ms;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-name: linkcontainerbounceInDown;
           animation-name: linkcontainerbounceInDown;
 }
 #addlink-modal.ng-leave {
-  -webkit-animation-duration: 0.4s;
-          animation-duration: 0.4s;
+  -webkit-animation-duration: 400ms;
+          animation-duration: 400ms;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-name: linkcontainerbounceInDown;
@@ -199,6 +210,7 @@ footer {
   height: 60px;
 }
 .addlink-form > .header > h3.title {
+  color: #2c3e50;
   float: left;
   letter-spacing: 0.05em;
   line-height: 60px;
@@ -206,25 +218,28 @@ footer {
 }
 .addlink-form > .header > .icon {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
   height: 60px;
   float: right;
   line-height: 60px;
   text-align: center;
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
   width: 60px;
 }
 .addlink-form > .header > .icon:hover {
   color: rgba(0, 0, 0, 0.7);
 }
 .addlink-form > .header > .icon:active {
-  color: rgba(0, 0, 0, 0.8);
+  color: black;
   -webkit-transition: none;
           transition: none;
 }
 .addlink-form > .main {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 35px 25px;
+  color: #2c3e50;
+  padding: 40px 25px 0;
   width: 100%;
 }
 .addlink-form > .footer {
@@ -287,85 +302,99 @@ footer {
 
 .form-group {
   height: 70px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   position: relative;
   width: 100%;
 }
 .form-group > .field {
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #3498db 4%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #3498db 4%);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 98%, #3498db 2%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 98%, #3498db 2%);
   background-size: 0% 100%;
   background-repeat: no-repeat;
   border: none;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0;
+  color: #2c3e50;
   font-family: "Gotham-Book", "Lato", "Helvetica", "Arial", "sans-serif";
   font-size: 20px;
   font-weight: 300;
   height: 45px;
-  margin-top: 25px;
   outline: none;
   padding: 0;
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
+  -webkit-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   width: 100%;
 }
 .form-group > .field::-webkit-input-placeholder {
-  color: #333;
+  color: #2c3e50;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 0.8px;
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
+  -webkit-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000;
+          perspective: 1000;
   visibility: visible !important;
 }
 .form-group > .field::-moz-placeholder {
-  color: #333;
+  color: #2c3e50;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 0.8px;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  backface-visibility: hidden;
+  perspective: 1000;
   visibility: visible !important;
 }
 .form-group > .field:-ms-input-placeholder {
-  color: #333;
+  color: #2c3e50;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 0.8px;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  backface-visibility: hidden;
+  perspective: 1000;
   visibility: visible !important;
 }
 .form-group > .field::placeholder {
-  color: #333;
+  color: #2c3e50;
   font-size: 18px;
   font-weight: 300;
   letter-spacing: 0.8px;
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
+  -webkit-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000;
+          perspective: 1000;
   visibility: visible !important;
 }
 .form-group > .field:valid, .form-group > .field:focus {
   background-size: 100% 100%;
 }
 .form-group > .field:valid::-webkit-input-placeholder, .form-group > .field:focus::-webkit-input-placeholder {
-  font-size: 16px;
-  -webkit-transform: translateY(-30px);
-          transform: translateY(-30px);
+  font-size: 14px;
+  font-family: "Gotham-Medium", "Lato", "Helvetica", "Arial", "sans-serif";
+  -webkit-transform: translate3d(0%, -115%, 0);
+          transform: translate3d(0%, -115%, 0);
 }
 .form-group > .field:valid::-moz-placeholder, .form-group > .field:focus::-moz-placeholder {
-  font-size: 16px;
-  transform: translateY(-30px);
+  font-size: 14px;
+  font-family: "Gotham-Medium", "Lato", "Helvetica", "Arial", "sans-serif";
+  transform: translate3d(0%, -115%, 0);
 }
 .form-group > .field:valid:-ms-input-placeholder, .form-group > .field:focus:-ms-input-placeholder {
-  font-size: 16px;
-  -ms-transform: translateY(-30px);
-      transform: translateY(-30px);
+  font-size: 14px;
+  font-family: "Gotham-Medium", "Lato", "Helvetica", "Arial", "sans-serif";
+  transform: translate3d(0%, -115%, 0);
 }
 .form-group > .field:valid::placeholder, .form-group > .field:focus::placeholder {
-  font-size: 16px;
-  -webkit-transform: translateY(-30px);
-      -ms-transform: translateY(-30px);
-          transform: translateY(-30px);
+  font-size: 14px;
+  font-family: "Gotham-Medium", "Lato", "Helvetica", "Arial", "sans-serif";
+  -webkit-transform: translate3d(0%, -115%, 0);
+          transform: translate3d(0%, -115%, 0);
 }
 .form-group > .action {
   background: none;
@@ -380,13 +409,15 @@ footer {
   padding: 0;
   position: relative;
   text-align: center;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
   overflow: hidden;
   width: 50%;
 }
 .form-group > .action span {
   display: block;
-  -webkit-transition: all 0.3s;
-          transition: all 0.3s;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
   -webkit-transition-delay: 0.3s;
           transition-delay: 0.3s;
 }
@@ -394,12 +425,16 @@ footer {
   font-family: "icomoon";
   left: 50%;
   position: absolute;
-  -webkit-transition: all 0.15s cubic-bezier(0.75, 0, 0.125, 1);
-          transition: all 0.15s cubic-bezier(0.75, 0, 0.125, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000;
+          perspective: 1000;
   opacity: 0;
 }
 .form-group > .action:hover span {
@@ -412,22 +447,28 @@ footer {
 .form-group > .action:hover:after {
   -webkit-transform: translate3d(-50%, -100%, 0);
           transform: translate3d(-50%, -100%, 0);
-  -webkit-transition-delay: 0.55s;
-          transition-delay: 0.55s;
+  -webkit-transition-delay: 0.15s;
+          transition-delay: 0.15s;
   opacity: 1;
-}
-.form-group > .action.cancel {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 .form-group > .action.cancel:after {
   content: "";
 }
+.form-group > .action.cancel:hover {
+  background: #fbfbfb;
+}
+.form-group > .action.submit {
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
 .form-group > .action.submit:after {
   content: "";
+  color: white;
+}
+.form-group > .action.submit:hover {
+  background: #34495e;
 }
 
 linkcontainer {
-  background: white;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   position: relative;
 }
@@ -460,6 +501,22 @@ linkcontainer > .list {
 .link:nth-child(2n) {
   background: white;
 }
+.link.ng-enter-stagger {
+  -webkit-transition-delay: 0.02s;
+          transition-delay: 0.02s;
+  -webkit-transition-duration: 0;
+          transition-duration: 0;
+}
+.link.ng-leave.ng-leave-active, .link.ng-move, .link.ng-enter {
+  opacity: 0;
+  -webkit-transform: translate3d(50px, 0, 0);
+          transform: translate3d(50px, 0, 0);
+}
+.link.ng-leave, .link.ng-move.ng-move-active, .link.ng-enter.ng-enter-active {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
 .link .icon {
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
@@ -491,6 +548,7 @@ linkcontainer > .list {
   }
 }
 .link .linktext {
+  color: #2c3e50;
   float: left;
   font-size: 12px;
   line-height: 40px;
@@ -525,19 +583,4 @@ linkcontainer > .list {
 }
 .link .link-controls .icon:active {
   color: #34495e;
-}
-
-.animate-repeat.ng-enter-stagger {
-  -webkit-transition-delay: 0.02s;
-          transition-delay: 0.02s;
-  -webkit-animation-delay: 0.02s;
-          animation-delay: 0.02s;
-}
-
-.animate-repeat.ng-leave.ng-leave-active, .animate-repeat.ng-move, .animate-repeat.ng-enter {
-  opacity: 0;
-}
-
-.animate-repeat.ng-leave, .animate-repeat.ng-move.ng-move-active, .animate-repeat.ng-enter.ng-enter-active {
-  opacity: 1;
 }
