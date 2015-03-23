@@ -23,7 +23,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-create:before {
+.icon-edit:before {
 	content: "\e708";
 }
 

@@ -1,17 +1,17 @@
 #linkcontainer
 	.page-wrapper
+		input(type="text" ng-model="query")
 		linkcontainer.animated.fadeInUpe
 			.header 
 				span LINKS
 			.list
-				.link(ng-repeat="link in links")
+				.link(ng-repeat="link in links | filter:query")
 					.icon.icon-ribbon
 					.title(title="test") {{ link.title }}
 					.linktext {{ link.url }}
 					.link-controls
-						a(href="{{ link.url }}" target="_blank").icon.icon-open
-						.icon.icon-create(ng-click="openEditLink()")
+						a.icon.icon-open(href="{{ link.url }}" target="_blank")
+						a.icon.icon-edit(ng-href="links/{{ $index }}")
 						.icon.icon-trash(ng-click="links.$remove(link)")
-
 
 #addlink-modal(ui-view='')

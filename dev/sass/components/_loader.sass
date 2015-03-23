@@ -1,0 +1,45 @@
+.circular
+	animation: rotate 2s linear infinite
+	height: 50px
+	left: 50%
+	position: absolute
+	top: 50%
+	transition: all .2s ease
+	transform: translate(-50%, -50%) rotate(360deg) 
+	width: 50px
+
+	&.ng-show
+		transition-delay: 0s
+		opacity: 1
+
+	&.ng-hide
+		transition-delay: 1s
+		opacity: 0
+
+
+.path
+	stroke-dasharray: 1,500
+	stroke-dashoffset: 0
+	animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite
+	stroke-linecap: round
+	stroke: $color-peterriver
+
+@keyframes rotate
+	0%
+		transform: translate(-50%, -50%) rotate(0deg) 
+	100%
+		transform: translate(-50%, -50%) rotate(360deg) 
+
+
+@keyframes dash
+	0%
+		stroke-dasharray: 1,200
+		stroke-dashoffset: 0
+
+	50%
+		stroke-dasharray: 89,200
+		stroke-dashoffset: -35
+
+	100%
+		stroke-dasharray: 89,200
+		stroke-dashoffset: -124

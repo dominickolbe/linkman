@@ -11,11 +11,11 @@
 			input.field(type="text" id="input-url" placeholder="URL" required ng-model="url")
 			
 		.form-group
-			input.field(type="text" id="input-key" placeholder="KEYWORDS" required)
+			input.field(type="text" id="input-key" placeholder="KEYWORDS" required ng-model="tags")
 
 	.footer
 		.form-group
-			.action.cancel.icon(ng-click="cancel()") 
+			.action.cancel.icon(ng-click="cancel()" ng-hide="load")
 				span CANCEL
-			.action.submit(ng-click="submit()") 
+			.action.submit(ng-click="submit()" ng-hide="load")
 				span SUBMIT THIS LINK

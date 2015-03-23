@@ -1,4 +1,4 @@
-angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
+angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys'])
 
 .constant('FBURL', "https://linkman.firebaseio.com/links")
 
@@ -7,36 +7,59 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
     return $firebaseArray(ref);
 })
 
+.service('hotkey', function(hotkeys, $state) {
+    this.run = function($scope) {
+        hotkeys.bindTo($scope)
+            .add({
+                combo: 'esc',
+                callback: function(event, hotkey) {
+                    $state.go('links');
+                }
+            })
+            .add({
+                combo: 'ctrl+n',
+                callback: function(event, hotkey) {
+                    $state.go('links.add');
+                }
+            })
+            .add({
+                combo: 'n',
+                callback: function(event, hotkey) {
+                    $state.go('links.add');
+                }
+            })
+    }
+})
+
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    $urlRouterProvider.otherwise('/links');
-
     $stateProvider
-
         .state('links', {
-        url: '/links',
-        templateUrl: 'views/link-list.html',
-        controller: 'ListController'
-    })
+            url: '/links',
+            templateUrl: 'views/link-list.html',
+            controller: 'ListController'
+        })
+        .state('links.add', {
+            url: '/add',
+            templateUrl: 'views/link-add.html',
+            controller: 'AddLinkController'
+        })
+        .state('links.edit', {
+            url: '/:id',
+            templateUrl: 'views/link-edit.html',
+            controller: 'EditController'
+        });
 
-    .state('links.add', {
-        url: '/add',
-        templateUrl: 'views/link-add.html',
-        controller: 'AddLinkController'
-    })
-
-    .state('links.edit', {
-        url: '/edit',
-        templateUrl: 'views/link-edit.html',
-        controller: 'EditController'
-    });
+    $urlRouterProvider.otherwise('/links');
 
     $locationProvider
         .html5Mode(true);
 })
 
 
-.controller('AppController', function($scope, fbService, $state) {
+.controller('AppController', function($scope, fbService, $state, hotkey) {
+
+    $scope.showpreloader = true;
 
     $scope.openAddLink = function() {
         $state.go('links.add');
@@ -50,30 +73,31 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
         fbService.$remove();
     };
 
+    hotkey.run($scope);
+
 })
 
 .controller('ListController', function($scope, fbService) {
 
     $scope.links = fbService;
 
+    $scope.$parent.showpreloader = false;
+
 })
 
 .controller('AddLinkController', function($scope, fbService, $state) {
-
-    //$scope.fb = fbService;
-
-
 
     $scope.submit = function() {
 
         fbService.$add({
 
             title: $scope.title,
-            url: $scope.url
+            url: $scope.url,
+            tags: $scope.tags
 
+        }).then(function(ref){
+            //$state.go('links');
         });
-
-        $state.go('links');
 
     };
 
@@ -81,31 +105,25 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase'])
         $state.go('links');
     }
 
-
 })
 
-.controller('EditController', function($scope, fbService, $state) {
+.controller('EditController', function($scope, fbService, $state, $stateParams) {
 
-    //$scope.links = fbService;
-
-    $scope.link = $scope.links[1];
-
-    var save = $scope.links[1];
-
-    save.title = 'test';
-
-
+    $scope.master = $scope.links[$stateParams.id];
+    $scope.link = angular.copy($scope.master);
 
     $scope.save = function() {
-        fbService.$save($scope.link);
-        $state.go('links');
-    }
 
+        angular.copy($scope.link, $scope.master)
+
+        fbService.$save($scope.master).then(function(){
+            $state.go('links');
+        });
+        
+    }
 
     $scope.cancel = function() {
-        $scope.links[1] = save;
         $state.go('links');
     }
-
 
 });
