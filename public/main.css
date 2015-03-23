@@ -62,7 +62,7 @@ html, body {
 }
 
 body {
-  padding-top: 100px;
+  padding: 70px 0 0 0;
 }
 
 .page-wrapper {
@@ -83,12 +83,19 @@ main {
 
 mask {
   background: rgba(0, 0, 0, 0.5);
-  display: none;
   height: 100%;
   position: fixed;
   top: 0;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
   width: 100%;
   z-index: 2;
+}
+mask.ng-hide {
+  opacity: 0;
+}
+mask.ng-show {
+  opacity: 1;
 }
 
 ::-moz-selection {
@@ -129,7 +136,6 @@ header h1.title {
 header .action {
   border: 1px solid white;
   border-radius: 2px;
-  color: white;
   cursor: pointer;
   float: right;
   font-size: 14px;
@@ -140,11 +146,53 @@ header .action {
   text-align: center;
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
+  position: relative;
   width: 180px;
+}
+header .action span {
+  color: white;
+  display: block;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+header .action:after {
+  content: "";
+  color: black;
+  font-family: "icomoon";
+  left: 50%;
+  position: absolute;
+  -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000;
+          perspective: 1000;
+  opacity: 0;
 }
 header .action:hover {
   background: white;
   color: #333;
+}
+header .action:hover span {
+  color: black;
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  opacity: 0;
+}
+header .action:hover:after {
+  -webkit-transform: translate3d(-50%, -100%, 0);
+          transform: translate3d(-50%, -100%, 0);
+  -webkit-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+  opacity: 1;
 }
 
 footer {
@@ -418,8 +466,8 @@ footer {
   display: block;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
 }
 .form-group > .action:after {
   font-family: "icomoon";
@@ -471,6 +519,18 @@ footer {
   opacity: 0;
 }
 
+.search-field {
+  background: #fbfbfb;
+  border: none;
+  height: 70px;
+  font-family: "Gotham-Light", "Lato", "Helvetica", "Arial", "sans-serif";
+  font-size: 24px;
+  margin: 20px 0;
+  outline: none;
+  width: 100%;
+  z-index: 3;
+}
+
 linkcontainer {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   position: relative;
@@ -482,12 +542,24 @@ linkcontainer > .header {
   cursor: default;
   height: 60px;
   letter-spacing: 0.05em;
-  line-height: 60px;
-  padding-left: 20px;
+  padding: 0 20px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+linkcontainer > .header > .title {
+  line-height: 60px;
+}
+linkcontainer > .header > .count {
+  background: #3498db;
+  border-radius: 2px;
+  color: white;
+  float: right;
+  font-family: "Gotham-Medium", "Lato", "Helvetica", "Arial", "sans-serif";
+  font-size: 12px;
+  margin: 17px 0;
+  padding: 5px 10px;
 }
 linkcontainer > .list {
   height: 100%;
@@ -512,8 +584,6 @@ linkcontainer > .list {
 }
 .link.ng-leave.ng-leave-active, .link.ng-move, .link.ng-enter {
   opacity: 0;
-  -webkit-transform: translate3d(50px, 0, 0);
-          transform: translate3d(50px, 0, 0);
 }
 .link.ng-leave, .link.ng-move.ng-move-active, .link.ng-enter.ng-enter-active {
   opacity: 1;

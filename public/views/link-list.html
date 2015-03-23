@@ -1,15 +1,15 @@
 
 <div id="linkcontainer">
   <div class="page-wrapper">
-    <input type="text" ng-model="query"/>
+    <input type="text" ng-model="query" placeholder="Arrww so much links ... please filter this list" autofocus="autofocus" class="search-field"/>
     <linkcontainer class="animated fadeInUpe">
-      <div class="header"> <span>LINKS</span></div>
+      <div class="header"> <span class="title">LINKS</span><span class="count">{{ links.length }}</span></div>
       <div class="list">
         <div ng-repeat="link in links | filter:query" class="link">
-          <div class="icon icon-ribbon"></div>
+          <div ng-click=" link.fav = !link.fav; links.$save(link)" ng-class="(link.fav) ? 'icon-star' : 'icon-star-outline'" class="icon"></div>
           <div title="test" class="title">{{ link.title }}</div>
           <div class="linktext">{{ link.url }}</div>
-          <div class="link-controls"><a href="{{ link.url }}" target="_blank" class="icon icon-open"></a><a ng-href="links/{{ $index }}" class="icon icon-edit"></a>
+          <div class="link-controls"><a href="{{ link.url }}" target="_blank" class="icon icon-open"></a><a ng-href="link/{{ link.$id }}" class="icon icon-edit"></a>
             <div ng-click="links.$remove(link)" class="icon icon-trash"></div>
           </div>
         </div>

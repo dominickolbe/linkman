@@ -12,19 +12,19 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
         hotkeys.bindTo($scope)
             .add({
                 combo: 'esc',
-                callback: function(event, hotkey) {
+                callback: function(event) {
                     $state.go('links');
                 }
             })
             .add({
                 combo: 'ctrl+n',
-                callback: function(event, hotkey) {
+                callback: function(event) {
                     $state.go('links.add');
                 }
             })
             .add({
                 combo: 'n',
-                callback: function(event, hotkey) {
+                callback: function(event) {
                     $state.go('links.add');
                 }
             })
@@ -35,7 +35,7 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
     $stateProvider
         .state('links', {
-            url: '/links',
+            url: '/link',
             templateUrl: 'views/link-list.html',
             controller: 'ListController'
         })
@@ -50,7 +50,7 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
             controller: 'EditController'
         });
 
-    $urlRouterProvider.otherwise('/links');
+    $urlRouterProvider.otherwise('/link');
 
     $locationProvider
         .html5Mode(true);
@@ -60,6 +60,7 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 .controller('AppController', function($scope, fbService, $state, hotkey) {
 
     $scope.showpreloader = true;
+    $scope.showmask = false;
 
     $scope.openAddLink = function() {
         $state.go('links.add');
@@ -87,21 +88,24 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
 .controller('AddLinkController', function($scope, fbService, $state) {
 
+
     $scope.submit = function() {
 
         fbService.$add({
 
             title: $scope.title,
             url: $scope.url,
-            tags: $scope.tags
+            tags: $scope.tags,
+            fav: false
 
         }).then(function(ref){
-            //$state.go('links');
+            $state.go('links');
         });
 
     };
 
     $scope.cancel = function() {
+
         $state.go('links');
     }
 
@@ -109,7 +113,8 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
 .controller('EditController', function($scope, fbService, $state, $stateParams) {
 
-    $scope.master = $scope.links[$stateParams.id];
+
+    $scope.master = $scope.links.$getRecord($stateParams.id);
     $scope.link = angular.copy($scope.master);
 
     $scope.save = function() {

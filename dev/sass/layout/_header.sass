@@ -20,7 +20,6 @@ header
 	.action
 		border: 1px solid white
 		border-radius: 2px
-		color: white
 		cursor: pointer
 		float: right
 		font-size: 14px
@@ -30,10 +29,44 @@ header
 		margin-top: 20px
 		text-align: center
 		transition: all .2s ease
+		position: relative
 		width: 180px
+
+		span
+			color: white
+			display: block
+			transition: all .3s ease
+			transition-delay: .3s
+
+		&:after
+			content: "\e117"
+			color: black
+			font-family: 'icomoon'
+			left: 50%
+			position: absolute
+			transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+			transition-delay: 0s
+			transform: translate3d(-50%, -50%, 0)
+			backface-visibility: hidden
+			perspective: 1000
+			opacity: 0
 
 		&:hover
 			background: white
 			color: #333
+
+			span
+				color: black
+				transform: translate3d(0, -50%, 0)
+				transition-delay: 0s
+				opacity: 0
+
+			&:after
+				transform: translate3d(-50%, -100%, 0)
+				transition-delay: .15s
+				opacity: 1
+
+
+		
 
 			

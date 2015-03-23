@@ -1,17 +1,20 @@
 #linkcontainer
 	.page-wrapper
-		input(type="text" ng-model="query")
+
+		input(type="text" ng-model="query" placeholder="Arrww so much links ... please filter this list" autofocus).search-field
+
 		linkcontainer.animated.fadeInUpe
 			.header 
-				span LINKS
+				span.title LINKS
+				span.count {{ links.length }}
 			.list
 				.link(ng-repeat="link in links | filter:query")
-					.icon.icon-ribbon
+					.icon(ng-click=" link.fav = !link.fav; links.$save(link)" ng-class="(link.fav) ? 'icon-star' : 'icon-star-outline'")
 					.title(title="test") {{ link.title }}
 					.linktext {{ link.url }}
 					.link-controls
 						a.icon.icon-open(href="{{ link.url }}" target="_blank")
-						a.icon.icon-edit(ng-href="links/{{ $index }}")
+						a.icon.icon-edit(ng-href="link/{{ link.$id }}")
 						.icon.icon-trash(ng-click="links.$remove(link)")
 
 #addlink-modal(ui-view='')

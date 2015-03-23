@@ -16,14 +16,14 @@
         <h1 class="title">
           <div class="icon fa fa-connectdevelop"> </div><span> LINKMAN</span>
         </h1>
-        <div ng-click="openAddLink()" class="action">ADD NEW LINK</div>
+        <div ng-click="openAddLink()" class="action"> <span>ADD NEW LINK</span></div>
       </div>
     </header>
     <main ui-view=""></main>
     <svg height="50" width="50" ng-show="showpreloader" class="circular">
       <circle cx="25" cy="25" r="20" fill="none" stroke-width="1.5" stroke-miterlimit="10" class="path"></circle>
     </svg>
-    <mask></mask>
+    <mask ng-show="showmask"></mask>
     <!--footer
     .page-wrapper
     	.icon.fa.fa-code  dominic kolbe

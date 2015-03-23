@@ -9,9 +9,22 @@ linkcontainer
 		cursor: default
 		height: 60px
 		letter-spacing: .05em
-		line-height: 60px
-		padding-left: 20px
+		
+		padding: 0 20px
 		user-select: none
+
+		>.title
+			line-height: 60px
+
+		>.count
+			background: $color-peterriver
+			border-radius: 2px
+			color: white
+			float: right
+			font-family: $Gotham-Medium
+			font-size: 12px
+			margin: 17px 0
+			padding: 5px 10px
 
 	>.list
 		height: 100%
@@ -24,8 +37,10 @@ linkcontainer
 	//border-top: 1px solid #DEDEDE
 	transition: all .2s ease-in-out
 	white-space: nowrap
+
 	&:nth-child(2n)
 		background: $link-background
+
 	&:last-child
 		//border: none
 
@@ -35,7 +50,7 @@ linkcontainer
 
 	&.ng-leave.ng-leave-active, &.ng-move, &.ng-enter
 		opacity: 0
-		transform: translate3d(50px, 0, 0)
+		//transform: translate3d(50px, 0, 0)
 
 	&.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter-active
 		opacity: 1

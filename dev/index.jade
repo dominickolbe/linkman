@@ -10,14 +10,15 @@ html(lang="en")
 				h1.title
 					.icon.fa.fa-connectdevelop 
 					span  LINKMAN
-				.action(ng-click="openAddLink()") ADD NEW LINK
+				.action(ng-click="openAddLink()") 
+					span ADD NEW LINK
 
 		main(ui-view='')
 
 		svg(class="circular" height="50" width="50" ng-show="showpreloader")
 			circle(class="path" cx="25" cy="25" r="20" fill="none" stroke-width="1.5" stroke-miterlimit="10")
 
-		mask
+		mask(ng-show="showmask")
 
 
 		//footer
