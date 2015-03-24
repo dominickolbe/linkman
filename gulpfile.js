@@ -17,6 +17,7 @@ var config = {
         forms: true,
         scroll: true
     },
+    open: false,
     scrollThrottle: 100
 };
 
@@ -40,7 +41,8 @@ gulp.task('views', function() {
 
 gulp.task('sass', function() {
     return sass('dev/sass/main.sass', {
-            style: 'expanded'
+            style: 'expanded',
+            compass: true
         })
         .on('error', function(err) {
             console.error('Error!', err.message);

@@ -2,6 +2,7 @@
 /* IMPORT ALL SUB-SASS-FILES */
 /* page-dims */
 /* fonts */
+/* modular-scale */
 /* images */
 /* coolors */
 /* usage:  @include is-#### */
@@ -88,6 +89,7 @@ mask {
   top: 0;
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
+  opacity: 0;
   width: 100%;
   z-index: 2;
 }
@@ -126,7 +128,7 @@ header h1.title {
   cursor: default;
   float: left;
   font-family: "Gotham-Light", "Lato", "Helvetica", "Arial", "sans-serif";
-  font-size: 2em;
+  font-size: 1.95313em;
   line-height: 70px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -260,6 +262,7 @@ footer {
 .addlink-form > .header > h3.title {
   color: #2c3e50;
   float: left;
+  font-size: 1em;
   letter-spacing: 0.05em;
   line-height: 60px;
   padding-left: 20px;
@@ -524,7 +527,7 @@ footer {
   border: none;
   height: 70px;
   font-family: "Gotham-Light", "Lato", "Helvetica", "Arial", "sans-serif";
-  font-size: 24px;
+  font-size: 1.5625em;
   margin: 20px 0;
   outline: none;
   width: 100%;
@@ -541,7 +544,6 @@ linkcontainer > .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   cursor: default;
   height: 60px;
-  letter-spacing: 0.05em;
   padding: 0 20px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -549,6 +551,9 @@ linkcontainer > .header {
           user-select: none;
 }
 linkcontainer > .header > .title {
+  color: #2c3e50;
+  font-size: 1em;
+  letter-spacing: 0.05em;
   line-height: 60px;
 }
 linkcontainer > .header > .count {
@@ -557,7 +562,7 @@ linkcontainer > .header > .count {
   color: white;
   float: right;
   font-family: "Gotham-Medium", "Lato", "Helvetica", "Arial", "sans-serif";
-  font-size: 12px;
+  font-size: 0.8em;
   margin: 17px 0;
   padding: 5px 10px;
 }
@@ -623,7 +628,7 @@ linkcontainer > .list {
 .link .linktext {
   color: #2c3e50;
   float: left;
-  font-size: 12px;
+  font-size: 0.8em;
   line-height: 40px;
   padding-left: 30px;
   text-overflow: ellipsis;
@@ -671,6 +676,7 @@ linkcontainer > .list {
       -ms-transform: translate(-50%, -50%) rotate(360deg);
           transform: translate(-50%, -50%) rotate(360deg);
   width: 50px;
+  z-index: 4;
 }
 .circular.ng-show {
   -webkit-transition-delay: 0s;

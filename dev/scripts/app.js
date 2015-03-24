@@ -78,9 +78,25 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
 })
 
-.controller('ListController', function($scope, fbService) {
+.controller('ListController', function($scope, fbService, $timeout) {
 
     $scope.links = fbService;
+
+    $scope.links.$loaded().then(function(){
+        $timeout(function(){
+            $scope.$apply();
+        }, 2000)
+        
+    });
+
+    $scope.links.$watch(function(event) {
+      console.log(event);
+      $timeout(function(){
+            $scope.$apply();
+        }, 2000)
+    });
+
+
 
     $scope.$parent.showpreloader = false;
 
@@ -98,7 +114,7 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
             tags: $scope.tags,
             fav: false
 
-        }).then(function(ref){
+        }).then(function(ref) {
             $state.go('links');
         });
 
@@ -111,20 +127,28 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
 })
 
-.controller('EditController', function($scope, fbService, $state, $stateParams) {
-
+.controller('EditController', function($scope, fbService, $state, $stateParams, $timeout) {
 
     $scope.master = $scope.links.$getRecord($stateParams.id);
     $scope.link = angular.copy($scope.master);
+
+
+    $scope.links.$watch(function(event) {
+        $scope.master = $scope.links.$getRecord($stateParams.id);
+    });
+
+    if ($scope.master == null) {
+        //$state.go('links');
+    }
 
     $scope.save = function() {
 
         angular.copy($scope.link, $scope.master)
 
-        fbService.$save($scope.master).then(function(){
+        fbService.$save($scope.master).then(function() {
             $state.go('links');
         });
-        
+
     }
 
     $scope.cancel = function() {
