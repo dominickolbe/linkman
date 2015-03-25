@@ -78,27 +78,19 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
 })
 
-.controller('ListController', function($scope, fbService, $timeout) {
+.controller('ListController', function($scope, fbService) {
 
     $scope.links = fbService;
 
-    $scope.links.$loaded().then(function(){
-        $timeout(function(){
-            $scope.$apply();
-        }, 2000)
-        
-    });
+    $scope.links.$loaded().then(function() {
 
-    $scope.links.$watch(function(event) {
-      console.log(event);
-      $timeout(function(){
-            $scope.$apply();
-        }, 2000)
+        $scope.$parent.showpreloader = false;
+
     });
 
 
 
-    $scope.$parent.showpreloader = false;
+
 
 })
 
@@ -106,6 +98,8 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
 
     $scope.submit = function() {
+
+        $scope.$parent.$parent.showpreloader = true;
 
         fbService.$add({
 
@@ -115,6 +109,7 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
             fav: false
 
         }).then(function(ref) {
+            $scope.$parent.$parent.showpreloader = false;
             $state.go('links');
         });
 
@@ -127,7 +122,7 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
 })
 
-.controller('EditController', function($scope, fbService, $state, $stateParams, $timeout) {
+.controller('EditController', function($scope, fbService, $state, $stateParams) {
 
     $scope.master = $scope.links.$getRecord($stateParams.id);
     $scope.link = angular.copy($scope.master);
@@ -135,17 +130,22 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
     $scope.links.$watch(function(event) {
         $scope.master = $scope.links.$getRecord($stateParams.id);
+        $scope.link = angular.copy($scope.master);
+
+        if ($scope.master == null) {
+            $state.go('links');
+        }
+
     });
 
-    if ($scope.master == null) {
-        //$state.go('links');
-    }
-
     $scope.save = function() {
+
+        $scope.$parent.$parent.showpreloader = true;
 
         angular.copy($scope.link, $scope.master)
 
         fbService.$save($scope.master).then(function() {
+            $scope.$parent.$parent.showpreloader = false;
             $state.go('links');
         });
 

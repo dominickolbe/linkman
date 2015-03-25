@@ -1,8 +1,14 @@
 footer
-	background: white
+	background: #2c3e50
 	bottom: 0
 	box-shadow: 0 -1px 3px 0 rgba(0,0,0,.1)
 	height: $footer-height
 	position: fixed
 	width: 100%
-	z-index: 9
+	z-index: 0
+
+	@media only screen and (max-width: $page-width)
+		position: relative
+
+	p
+		line-height: $footer-height

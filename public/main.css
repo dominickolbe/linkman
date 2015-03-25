@@ -74,6 +74,7 @@ body {
 }
 @media only screen and (max-width: 1200px) {
   .page-wrapper {
+    padding: 0 20px;
     width: 100%;
   }
 }
@@ -135,76 +136,23 @@ header h1.title {
       -ms-user-select: none;
           user-select: none;
 }
-header .action {
-  border: 1px solid white;
-  border-radius: 2px;
-  cursor: pointer;
-  float: right;
-  font-size: 14px;
-  height: 30px;
-  letter-spacing: 1px;
-  line-height: 30px;
-  margin-top: 20px;
-  text-align: center;
-  -webkit-transition: all 0.2s ease;
-          transition: all 0.2s ease;
-  position: relative;
-  width: 180px;
-}
-header .action span {
-  color: white;
-  display: block;
-  -webkit-transition: all 0.3s ease;
-          transition: all 0.3s ease;
-  -webkit-transition-delay: 0.3s;
-          transition-delay: 0.3s;
-}
-header .action:after {
-  content: "";
-  color: black;
-  font-family: "icomoon";
-  left: 50%;
-  position: absolute;
-  -webkit-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-          transform: translate3d(-50%, -50%, 0);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-perspective: 1000;
-          perspective: 1000;
-  opacity: 0;
-}
-header .action:hover {
-  background: white;
-  color: #333;
-}
-header .action:hover span {
-  color: black;
-  -webkit-transform: translate3d(0, -50%, 0);
-          transform: translate3d(0, -50%, 0);
-  -webkit-transition-delay: 0s;
-          transition-delay: 0s;
-  opacity: 0;
-}
-header .action:hover:after {
-  -webkit-transform: translate3d(-50%, -100%, 0);
-          transform: translate3d(-50%, -100%, 0);
-  -webkit-transition-delay: 0.15s;
-          transition-delay: 0.15s;
-  opacity: 1;
-}
 
 footer {
-  background: white;
+  background: #2c3e50;
   bottom: 0;
   box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1);
   height: 50px;
   position: fixed;
   width: 100%;
-  z-index: 9;
+  z-index: 0;
+}
+@media only screen and (max-width: 1200px) {
+  footer {
+    position: relative;
+  }
+}
+footer p {
+  line-height: 50px;
 }
 
 #addlink-modal {
@@ -331,24 +279,42 @@ footer {
             transform: translate3d(-50%, -50%, 0);
   }
 }
-.resetdata, .adddata {
-  background: #e74c3c;
-  border-radius: 3px;
-  bottom: 10px;
-  color: white;
+.add-button {
+  border: 1px solid white;
+  border-radius: 0px;
   cursor: pointer;
-  display: block;
-  height: 45px;
-  right: 5px;
-  line-height: 45px;
+  color: white;
+  float: right;
+  font-size: 14px;
+  height: 30px;
+  letter-spacing: 1px;
+  line-height: 30px;
+  margin-top: 20px;
   text-align: center;
-  position: fixed;
-  width: 150px;
+  -webkit-transition: all 0.2s ease-out;
+          transition: all 0.2s ease-out;
+  position: relative;
+  width: 180px;
 }
-
-.adddata {
-  background: #2980b9;
-  left: 5px;
+.add-button:hover {
+  background: white;
+  color: #2c3e50;
+}
+@media only screen and (max-width: 1200px) {
+  .add-button {
+    bottom: 3px;
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    position: fixed;
+    background: #3498db;
+    width: calc(100% - 40px);
+    z-index: 3;
+  }
+  .add-button:hover {
+    background: #2980b9;
+    color: white;
+  }
 }
 
 .form-group {
@@ -622,7 +588,7 @@ linkcontainer > .list {
 }
 @media only screen and (max-width: 1200px) {
   .link .title {
-    width: 50%;
+    width: 85%;
   }
 }
 .link .linktext {

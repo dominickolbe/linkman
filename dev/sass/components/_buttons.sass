@@ -1,17 +1,34 @@
-.resetdata, .adddata
-	background: $color-alizarin
-	border-radius: 3px
-	bottom: 10px
-	color: white
+.add-button
+	border: 1px solid white
+	border-radius: 0px
 	cursor: pointer
-	display: block
-	height: 45px
-	right: 5px
-	line-height: 45px
+	color: white
+	float: right
+	font-size: 14px
+	height: 30px
+	letter-spacing: 1px
+	line-height: 30px
+	margin-top: 20px
 	text-align: center
-	position: fixed
-	width: 150px
+	transition: all .2s ease-out
+	position: relative
+	width: 180px
+	
+	&:hover
+		background: white
+		color: $text-color
 
-.adddata
-	background: $color-belizehole
-	left: 5px
+	@media only screen and (max-width: $page-width)
+		bottom: 3px
+		border: none
+		height: 40px
+		line-height: 40px
+		position: fixed
+		background: $color-peterriver
+		width: calc(100% - 40px)
+		z-index: 3
+
+		&:hover
+			background: $color-belizehole
+			color: white
+

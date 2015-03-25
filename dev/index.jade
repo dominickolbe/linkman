@@ -11,8 +11,7 @@ html(lang="en")
 					.icon.fa.fa-connectdevelop 
 					span  LINKMAN
 					
-				.action(ng-click="openAddLink()") 
-					span ADD NEW LINK
+				.add-button(ng-click="openAddLink()") ADD NEW LINK
 
 		main(ui-view='')
 
@@ -22,9 +21,9 @@ html(lang="en")
 		mask(ng-show="showmask")
 
 
-		//footer
+		footer
 			.page-wrapper
-				.icon.fa.fa-code  dominic kolbe
+				//p  dominic kolbe
 
 
 		include ./templates/html-footer.jade

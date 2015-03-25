@@ -6,7 +6,7 @@
 		linkcontainer.animated.fadeInUpe
 			.header 
 				span.title LINKS
-				span.count {{ links.length }}
+				span.count(ng-cloak='') {{ links.length }}
 			.list
 				.link(ng-repeat="link in links | filter:query")
 					.icon(ng-click=" link.fav = !link.fav; links.$save(link)" ng-class="(link.fav) ? 'icon-star' : 'icon-star-outline'")
