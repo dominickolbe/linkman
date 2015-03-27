@@ -82,7 +82,8 @@ linkcontainer
 		width: 300px
 
 		@media only screen and (max-width: $page-width)
-			width: 85%
+			padding: 0
+			width: calc(100% - 160px)
 
 	.linktext
 		color: $text-color
@@ -107,7 +108,7 @@ linkcontainer
 		opacity: 0
 
 		@media only screen and (max-width: $page-width)
-			display: none
+			//opacity: 1
 
 		.icon:hover
 			color: rgba(0, 0, 0,.7)

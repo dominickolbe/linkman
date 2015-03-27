@@ -18,7 +18,7 @@
 		height: 45px
 		outline: none
 		padding: 0
-		transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1)
+		transition: all .2s ease
 		width: 100%
 
 		&::placeholder
@@ -26,7 +26,7 @@
 			font-size: 18px
 			font-weight: 300
 			letter-spacing: .8px
-			transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1)
+			transition: all .2s ease
 			backface-visibility: hidden
 			perspective: 1000
 			visibility: visible!important
@@ -114,6 +114,8 @@
 	//padding: 0 20px
 	width: 100%
 	z-index: 3
+	@media only screen and (max-width: $page-width)
+		font-size: ms(0)
 
 
 
