@@ -81,9 +81,18 @@ linkcontainer
 		overflow: hidden
 		width: 300px
 
+		&.ng-click-active
+			display: none
+
 		@media only screen and (max-width: $page-width)
 			padding: 0
-			width: calc(100% - 160px)
+			width: calc(95% - 40px)
+
+			&.ng-touched + .linktext + .link-controls
+				display: block
+
+			&:focus
+				width: calc(100% - 160px)
 
 	.linktext
 		color: $text-color
@@ -98,6 +107,8 @@ linkcontainer
 		@media only screen and (max-width: $page-width)
 			display: none
 
+
+
 	&:hover .link-controls
 		transition: all 200ms ease
 		opacity: 1
@@ -108,7 +119,7 @@ linkcontainer
 		opacity: 0
 
 		@media only screen and (max-width: $page-width)
-			//opacity: 1
+			display: none
 
 		.icon:hover
 			color: rgba(0, 0, 0,.7)

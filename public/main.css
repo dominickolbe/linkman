@@ -625,9 +625,18 @@ linkcontainer > .list {
   overflow: hidden;
   width: 300px;
 }
+.link .title.ng-click-active {
+  display: none;
+}
 @media only screen and (max-width: 1200px) {
   .link .title {
     padding: 0;
+    width: calc(95% - 40px);
+  }
+  .link .title.ng-touched + .linktext + .link-controls {
+    display: block;
+  }
+  .link .title:focus {
     width: calc(100% - 160px);
   }
 }
@@ -656,6 +665,11 @@ linkcontainer > .list {
   -webkit-transition: all 200ms ease;
           transition: all 200ms ease;
   opacity: 0;
+}
+@media only screen and (max-width: 1200px) {
+  .link .link-controls {
+    display: none;
+  }
 }
 .link .link-controls .icon:hover {
   color: rgba(0, 0, 0, 0.7);

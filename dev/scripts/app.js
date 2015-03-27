@@ -1,4 +1,4 @@
-angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys'])
+angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys', 'ngTouch'])
 
 .constant('FBURL', "https://linkman.firebaseio.com/links")
 
@@ -72,6 +72,10 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
 
     $scope.reset = function() {
         fbService.$remove();
+    };
+
+    $scope.yes = function() {
+        alert('yes');
     };
 
     hotkey.run($scope);
