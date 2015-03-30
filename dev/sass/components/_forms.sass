@@ -100,8 +100,11 @@
 			&:hover
 				background: $color-wetasphalt
 
+		&.full
+			width: 100%
 		&.hide
-			opacity: 0
+			border: none
+			width: 0%
 
 .search-field
 	background: $page-background
@@ -111,9 +114,22 @@
 	font-size: ms(2)
 	margin: 20px 0
 	outline: none
-	//padding: 0 20px
+	padding: 0 20px
+	position: relative
 	width: 100%
-	z-index: 3
+	z-index: 2
+
+	&::-webkit-search-cancel-button
+		-webkit-appearance: none
+
+	&::-webkit-search-cancel-button:after
+		content: "\e117"
+		color: rgba(0,0,0,.4)
+		cursor: pointer
+		font-family: 'icomoon'
+		font-size: ms(-2)
+
+
 	@media only screen and (max-width: $page-width)
 		font-size: ms(0)
 

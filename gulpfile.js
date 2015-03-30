@@ -4,6 +4,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var jade = require('gulp-jade');
 var uglify = require('gulp-uglify');
 var rename = require("gulp-rename");
+var concat = require('gulp-concat');
 var ngmin = require('gulp-ngmin');
 
 var browserSync = require('browser-sync');
@@ -23,7 +24,7 @@ var config = {
 
 browserSync(config);
 
-gulp.task('default', ['views', 'sass', 'scripts', 'images', 'watch']);
+gulp.task('default', ['views', 'sass', 'scripts', 'deps', 'images', 'watch']);
 
 gulp.task('views', function() {
     gulp.src('dev/index.jade')
@@ -69,6 +70,28 @@ gulp.task('scripts', function() {
     reload();
 });
 
+gulp.task('deps', function() {
+
+    gulp.src([
+            'dev/bower_components/angular/angular.min.js',
+            'dev/bower_components/angular-animate/angular-animate.min.js',
+            'dev/bower_components/angular-hotkeys/build/hotkeys.min.js',
+            'dev/bower_components/angular-ui-router/release/angular-ui-router.min.js',
+            'dev/bower_components/firebase/firebase.js',
+            'dev/bower_components/angularfire/dist/angularfire.min.js'
+
+        ])
+        .pipe(concat('deps.js'))
+        .pipe(uglify({
+            mangle: false
+        }))
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('public/scripts'));
+
+});
+
 gulp.task('images', function() {
     gulp.src('dev/images/*')
         .pipe(gulp.dest('public/img/'));
@@ -82,6 +105,7 @@ gulp.task('watch', function() {
     gulp.watch('dev/sass/*', ['sass']);
     gulp.watch('dev/sass/*/*', ['sass']);
     gulp.watch('dev/scripts/*', ['scripts']);
+    gulp.watch('dev/bower_components/*/*', ['deps']);
     gulp.watch('dev/templates/*', ['views']);
     gulp.watch('dev/views/*', ['views']);
 });

@@ -3,7 +3,7 @@
 		h3.title ADD A NEW LINK
 		i.icon.icon-cross(ng-click="cancel()")
 	//p http://tympanus.net/Development/DialogEffects/cathy.html
-	.main
+	form.main(name="addForm")
 		.form-group
 			input.field(type="text" id="input-title" placeholder="TITLE" required ng-model="title" value="test")
 			
@@ -15,7 +15,7 @@
 
 	.footer
 		.form-group
-			.action.cancel(ng-click="cancel()" ng-hide="load")
+			.action.cancel(ng-click="cancel()" ng-class="{ full: addForm.$invalid }")
 				span CANCEL
-			.action.submit(ng-click="submit()" ng-hide="load")
+			.action.submit(ng-click="submit()" ng-class="{ hide: addForm.$invalid }")
 				span SUBMIT THIS LINK

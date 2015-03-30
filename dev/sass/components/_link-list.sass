@@ -25,7 +25,7 @@ linkcontainer
 			font-family: $Gotham-Medium
 			font-size: ms(-1)
 			margin: 17px 0
-			padding: 5px 10px
+			padding: 5px 10px 4px
 
 	>.list
 		height: 100%
@@ -33,11 +33,11 @@ linkcontainer
 
 
 .link
-	@include size(100%, $link-height)
 	background: $link-background2
-	//border-top: 1px solid #DEDEDE
+	height: $link-height
 	transition: all .2s ease-in-out
 	white-space: nowrap
+	width: 100%
 
 	&:nth-child(2n)
 		background: $link-background
@@ -84,15 +84,6 @@ linkcontainer
 		&.ng-click-active
 			display: none
 
-		@media only screen and (max-width: $page-width)
-			padding: 0
-			width: calc(95% - 40px)
-
-			&.ng-touched + .linktext + .link-controls
-				display: block
-
-			&:focus
-				width: calc(100% - 160px)
 
 	.linktext
 		color: $text-color
@@ -103,9 +94,6 @@ linkcontainer
 		text-overflow: ellipsis
 		overflow: hidden
 		width: 730px
-
-		@media only screen and (max-width: $page-width)
-			display: none
 
 
 
@@ -118,20 +106,4 @@ linkcontainer
 		transition: all 200ms ease
 		opacity: 0
 
-		@media only screen and (max-width: $page-width)
-			display: none
-
-		.icon:hover
-			color: rgba(0, 0, 0,.7)
-			
-		.icon:active
-			color: rgba(52, 73, 94,1)
-
-
-
-
-
-
-
-
-
+		

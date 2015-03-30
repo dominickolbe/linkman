@@ -4,7 +4,7 @@
     <h3 class="title">EDIT LINK</h3><i ng-click="cancel()" class="icon icon-cross"></i>
   </div>
   <!--p http://tympanus.net/Development/DialogEffects/cathy.html-->
-  <div class="main">
+  <form name="editForm" class="main">
     <div class="form-group">
       <input type="text" id="input-title" placeholder="TITLE" required="required" ng-model="link.title" class="field"/>
     </div>
@@ -14,11 +14,11 @@
     <div class="form-group">
       <input type="text" id="input-key" placeholder="TAGS" required="required" ng-model="link.tags" class="field"/>
     </div>
-  </div>
+  </form>
   <div class="footer">
     <div class="form-group">
-      <div ng-click="cancel()" class="action cancel"> <span>CANCEL</span></div>
-      <div ng-click="save()" class="action submit"> <span>SAVE THIS LINK</span></div>
+      <div ng-click="cancel()" ng-class="{ full: editForm.$invalid }" class="action cancel"> <span>CANCEL</span></div>
+      <div ng-click="save()" ng-class="{ hide: editForm.$invalid }" class="action submit"> <span>SAVE THIS LINK</span></div>
     </div>
   </div>
 </div>

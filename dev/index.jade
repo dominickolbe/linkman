@@ -3,7 +3,7 @@ html(lang="en")
 	head
 		include ./templates/html-header.jade
 
-	body(ng-app="linkmanApp" ng-controller="AppController" ng-paste="yes();")
+	body(ng-app="linkmanApp" ng-controller="AppController")
 
 		header
 			.page-wrapper
@@ -19,7 +19,7 @@ html(lang="en")
 		svg(class="circular" height="50" width="50" ng-show="showpreloader")
 			circle(class="path" cx="25" cy="25" r="20" fill="none" stroke-width="1.5" stroke-miterlimit="10")
 
-		mask(ng-show="showmask")
+		mask(ng-show="showmask" ng-click="showmask=false;state.go('links')")
 
 
 		footer

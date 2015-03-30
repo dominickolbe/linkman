@@ -3,7 +3,7 @@
 		h3.title EDIT LINK
 		i.icon.icon-cross(ng-click="cancel()")
 	//p http://tympanus.net/Development/DialogEffects/cathy.html
-	.main
+	form.main(name="editForm")
 		.form-group
 			input.field(type="text" id="input-title" placeholder="TITLE" required ng-model="link.title")
 			
@@ -15,7 +15,7 @@
 
 	.footer
 		.form-group
-			.action.cancel(ng-click="cancel()") 
+			.action.cancel(ng-click="cancel()" ng-class="{ full: editForm.$invalid }") 
 				span CANCEL
-			.action.submit(ng-click="save()") 
+			.action.submit(ng-click="save()" ng-class="{ hide: editForm.$invalid }") 
 				span SAVE THIS LINK

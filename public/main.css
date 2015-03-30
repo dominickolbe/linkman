@@ -1,12 +1,4 @@
 @charset "UTF-8";
-/* IMPORT ALL SUB-SASS-FILES */
-/* page-dims */
-/* fonts */
-/* modular-scale */
-/* images */
-/* coolors */
-/* usage:  @include is-#### */
-/* usage: @include clearfix */
 @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
 @import url("Gotham/font.css");
 @import url("Icons/font.css");
@@ -72,12 +64,6 @@ body {
   position: relative;
   width: 1200px;
 }
-@media only screen and (max-width: 1200px) {
-  .page-wrapper {
-    padding: 0 20px;
-    width: 100%;
-  }
-}
 
 main {
   margin-bottom: 70px;
@@ -90,7 +76,7 @@ mask {
   top: 0;
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
-  opacity: 0;
+  opacity: 1;
   width: 100%;
   z-index: 2;
 }
@@ -147,11 +133,6 @@ footer {
   width: 100%;
   z-index: 0;
 }
-@media only screen and (max-width: 1200px) {
-  footer {
-    position: relative;
-  }
-}
 footer p {
   line-height: 50px;
 }
@@ -172,11 +153,6 @@ footer p {
           animation-delay: 0.01s;
   -webkit-animation-duration: 0;
           animation-duration: 0;
-}
-@media only screen and (max-width: 1200px) {
-  #addlink-modal {
-    width: 100%;
-  }
 }
 #addlink-modal.ng-enter {
   -webkit-animation-duration: 400ms;
@@ -328,27 +304,6 @@ footer p {
           transform: translate3d(0, -50%, 0) rotate(-45deg);
   -webkit-transition-delay: 0.1s;
           transition-delay: 0.1s;
-}
-@media only screen and (max-width: 1200px) {
-  .add-button {
-    width: calc(100% - 40px);
-    width: 30px;
-    z-index: 3;
-  }
-  .add-button span {
-    display: none;
-  }
-  .add-button:before {
-    color: white;
-    left: 50%;
-    -webkit-transform: translate3d(-50%, -50%, 0) rotate(-45deg);
-            transform: translate3d(-50%, -50%, 0) rotate(-45deg);
-    font-size: 1em;
-  }
-  .add-button:hover {
-    background: none;
-    color: white;
-  }
 }
 
 .form-group {
@@ -518,8 +473,12 @@ footer p {
 .form-group > .action.submit:hover {
   background: #34495e;
 }
+.form-group > .action.full {
+  width: 100%;
+}
 .form-group > .action.hide {
-  opacity: 0;
+  border: none;
+  width: 0%;
 }
 
 .search-field {
@@ -530,8 +489,20 @@ footer p {
   font-size: 1.5625em;
   margin: 20px 0;
   outline: none;
+  padding: 0 20px;
+  position: relative;
   width: 100%;
-  z-index: 3;
+  z-index: 2;
+}
+.search-field::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+.search-field::-webkit-search-cancel-button:after {
+  content: "";
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font-family: "icomoon";
+  font-size: 0.64em;
 }
 @media only screen and (max-width: 1200px) {
   .search-field {
@@ -569,19 +540,19 @@ linkcontainer > .header > .count {
   font-family: "Gotham-Medium", "Lato", "Helvetica", "Arial", "sans-serif";
   font-size: 0.8em;
   margin: 17px 0;
-  padding: 5px 10px;
+  padding: 5px 10px 4px;
 }
 linkcontainer > .list {
   height: 100%;
 }
 
 .link {
-  height: 40px;
-  width: 100%;
   background: #f9f9f9;
+  height: 40px;
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
   white-space: nowrap;
+  width: 100%;
 }
 .link:nth-child(2n) {
   background: white;
@@ -628,18 +599,6 @@ linkcontainer > .list {
 .link .title.ng-click-active {
   display: none;
 }
-@media only screen and (max-width: 1200px) {
-  .link .title {
-    padding: 0;
-    width: calc(95% - 40px);
-  }
-  .link .title.ng-touched + .linktext + .link-controls {
-    display: block;
-  }
-  .link .title:focus {
-    width: calc(100% - 160px);
-  }
-}
 .link .linktext {
   color: #2c3e50;
   float: left;
@@ -649,11 +608,6 @@ linkcontainer > .list {
   text-overflow: ellipsis;
   overflow: hidden;
   width: 730px;
-}
-@media only screen and (max-width: 1200px) {
-  .link .linktext {
-    display: none;
-  }
 }
 .link:hover .link-controls {
   -webkit-transition: all 200ms ease;
@@ -665,17 +619,6 @@ linkcontainer > .list {
   -webkit-transition: all 200ms ease;
           transition: all 200ms ease;
   opacity: 0;
-}
-@media only screen and (max-width: 1200px) {
-  .link .link-controls {
-    display: none;
-  }
-}
-.link .link-controls .icon:hover {
-  color: rgba(0, 0, 0, 0.7);
-}
-.link .link-controls .icon:active {
-  color: #34495e;
 }
 
 .circular {
