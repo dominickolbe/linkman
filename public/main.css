@@ -609,6 +609,16 @@ linkcontainer > .list {
   overflow: hidden;
   width: 730px;
 }
+.link .linktags {
+  color: #2c3e50;
+  float: left;
+  font-size: 0.8em;
+  line-height: 40px;
+  padding-left: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 200px;
+}
 .link:hover .link-controls {
   -webkit-transition: all 200ms ease;
           transition: all 200ms ease;
