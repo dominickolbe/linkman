@@ -30,6 +30,12 @@ angular.module('linkmanApp', ['ngAnimate', 'ui.router', 'firebase', 'cfp.hotkeys
     }
 })
 
+.filter('reverse', function(){
+    return function(obj){
+        return obj.slice().reverse();
+    };
+})
+
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $stateProvider

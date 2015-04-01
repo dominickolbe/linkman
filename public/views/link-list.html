@@ -5,7 +5,7 @@
     <linkcontainer class="animated fadeInUpe">
       <div class="header"> <span class="title">LINKS</span><span ng-cloak="" class="count">{{ links.length }}</span></div>
       <div class="list">
-        <div ng-repeat="link in links | filter:query" class="link">
+        <div ng-repeat="link in links | reverse | filter:query" class="link">
           <div ng-click=" link.fav = !link.fav; links.$save(link)" ng-class="(link.fav) ? 'icon-star' : 'icon-star-outline'" class="icon"></div>
           <div title="test" class="title">{{ link.title }}</div>
           <div class="linktext">{{ link.url }}</div>

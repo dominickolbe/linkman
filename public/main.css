@@ -78,7 +78,7 @@ mask {
           transition: all 0.2s ease;
   opacity: 1;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
 }
 mask.ng-hide {
   opacity: 0;
@@ -108,7 +108,7 @@ header {
       -ms-user-select: none;
           user-select: none;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 header h1.title {
   color: white;
@@ -148,7 +148,7 @@ footer p {
   -webkit-perspective: 1000;
           perspective: 1000;
   width: 800px;
-  z-index: 3;
+  z-index: 4;
   -webkit-animation-delay: 0.01s;
           animation-delay: 0.01s;
   -webkit-animation-duration: 0;
@@ -492,7 +492,6 @@ footer p {
   padding: 0 20px;
   position: relative;
   width: 100%;
-  z-index: 2;
 }
 .search-field::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -644,7 +643,7 @@ linkcontainer > .list {
       -ms-transform: translate(-50%, -50%) rotate(360deg);
           transform: translate(-50%, -50%) rotate(360deg);
   width: 50px;
-  z-index: 4;
+  z-index: 5;
 }
 .circular.ng-show {
   -webkit-transition-delay: 0s;

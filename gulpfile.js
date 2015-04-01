@@ -42,8 +42,7 @@ gulp.task('views', function() {
 
 gulp.task('sass', function() {
     return sass('dev/sass/main.sass', {
-            style: 'expanded',
-            compass: true
+            style: 'expanded'
         })
         .on('error', function(err) {
             console.error('Error!', err.message);

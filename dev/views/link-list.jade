@@ -8,7 +8,7 @@
 				span.title LINKS
 				span.count(ng-cloak='') {{ links.length }}
 			.list
-				.link(ng-repeat="link in links | filter:query")
+				.link(ng-repeat="link in links | reverse | filter:query")
 					.icon(ng-click=" link.fav = !link.fav; links.$save(link)" ng-class="(link.fav) ? 'icon-star' : 'icon-star-outline'")
 					.title(title="test") {{ link.title }}
 					.linktext {{ link.url }}
