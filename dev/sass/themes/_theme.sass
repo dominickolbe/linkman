@@ -6,7 +6,7 @@ html, body
 	-webkit-font-smoothing: antialiased
 
 body
-	padding: 70px 0 0 0
+	padding: 70px 0
 
 	
 
@@ -15,6 +15,9 @@ body
 	margin: 0 auto
 	position: relative
 	width: $page-width
+
+	@include is-small-screen
+		width: 90%
 
 
 main

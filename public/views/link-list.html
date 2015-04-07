@@ -7,8 +7,8 @@
       <div class="list">
         <div ng-repeat="link in links | reverse | filter:query" class="link">
           <div ng-click=" link.fav = !link.fav; links.$save(link)" ng-class="(link.fav) ? 'icon-star' : 'icon-star-outline'" class="icon"></div>
-          <div title="test" class="title">{{ link.title }}</div>
-          <div class="linktext">{{ link.url }}</div>
+          <div class="title">{{ link.title }}</div>
+          <div class="url">{{ link.url }}</div>
           <div class="link-controls"><a href="{{ link.url }}" target="_blank" class="icon icon-open"></a><a ng-href="link/{{ link.$id }}" class="icon icon-edit"></a>
             <div ng-click="links.$remove(link)" class="icon icon-trash"></div>
           </div>

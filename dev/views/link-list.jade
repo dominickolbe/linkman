@@ -10,8 +10,8 @@
 			.list
 				.link(ng-repeat="link in links | reverse | filter:query")
 					.icon(ng-click=" link.fav = !link.fav; links.$save(link)" ng-class="(link.fav) ? 'icon-star' : 'icon-star-outline'")
-					.title(title="test") {{ link.title }}
-					.linktext {{ link.url }}
+					.title {{ link.title }}
+					.url {{ link.url }}
 					.link-controls
 						a.icon.icon-open(href="{{ link.url }}" target="_blank")
 						a.icon.icon-edit(ng-href="link/{{ link.$id }}")

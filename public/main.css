@@ -55,14 +55,19 @@ html, body {
 }
 
 body {
-  padding: 70px 0 0 0;
+  padding: 70px 0;
 }
 
 .page-wrapper {
   display: table;
   margin: 0 auto;
   position: relative;
-  width: 1200px;
+  width: 1400px;
+}
+@media only screen and (max-width: 1450px) {
+  .page-wrapper {
+    width: 90%;
+  }
 }
 
 main {
@@ -503,7 +508,7 @@ footer p {
   font-family: "icomoon";
   font-size: 0.64em;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1400px) {
   .search-field {
     font-size: 1em;
   }
@@ -582,7 +587,7 @@ linkcontainer > .list {
           transition: color 200ms ease-in-out;
   width: 40px;
 }
-.link .title {
+.link > .title {
   color: #2c3e50;
   cursor: default;
   float: left;
@@ -593,12 +598,14 @@ linkcontainer > .list {
   padding-left: 30px;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 300px;
+  width: calc(50% - ( 40px * 4));
 }
-.link .title.ng-click-active {
-  display: none;
+@media only screen and (max-width: 768px) {
+  .link > .title {
+    width: calc(100% - ( 40px * 4));
+  }
 }
-.link .linktext {
+.link > .url {
   color: #2c3e50;
   float: left;
   font-size: 0.8em;
@@ -606,17 +613,12 @@ linkcontainer > .list {
   padding-left: 30px;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 730px;
+  width: 50%;
 }
-.link .linktags {
-  color: #2c3e50;
-  float: left;
-  font-size: 0.8em;
-  line-height: 40px;
-  padding-left: 30px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  width: 200px;
+@media only screen and (max-width: 768px) {
+  .link > .url {
+    display: none;
+  }
 }
 .link:hover .link-controls {
   -webkit-transition: all 200ms ease;

@@ -68,7 +68,7 @@ linkcontainer
 		transition: color 200ms ease-in-out
 		width: $link-height
 
-	.title
+	>.title
 		color: $text-color
 		cursor: default
 		float: left
@@ -79,31 +79,24 @@ linkcontainer
 		padding-left: 30px
 		text-overflow: ellipsis
 		overflow: hidden
-		width: 300px
+		width: calc(50% - ( #{$link-height} * 4))
 
-		&.ng-click-active
+		@include is-tablet
+			width: calc(100% - ( #{$link-height} * 4))
+
+
+	>.url
+		color: $text-color
+		float: left
+		font-size: ms(-1)
+		line-height: $link-height
+		padding-left: 30px
+		text-overflow: ellipsis
+		overflow: hidden
+		width: 50%
+
+		@include is-tablet
 			display: none
-
-
-	.linktext
-		color: $text-color
-		float: left
-		font-size: ms(-1)
-		line-height: $link-height
-		padding-left: 30px
-		text-overflow: ellipsis
-		overflow: hidden
-		width: 730px
-
-	.linktags
-		color: $text-color
-		float: left
-		font-size: ms(-1)
-		line-height: $link-height
-		padding-left: 30px
-		text-overflow: ellipsis
-		overflow: hidden
-		width: 200px
 
 
 
